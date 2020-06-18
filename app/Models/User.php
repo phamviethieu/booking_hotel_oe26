@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\User;
+namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -16,9 +16,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 
-        'password', 
-        'name', 
+        'username',
+        'password',
+        'name',
         'avatar',
         'email',
         'address',
@@ -31,9 +31,9 @@ class User extends Authenticatable
      *
      * @var array
      */
-    
+
     protected $hidden = [
-        'password', 
+        'password',
         'remember_token',
     ];
 
@@ -50,7 +50,7 @@ class User extends Authenticatable
     {
         return $this->beLongsTo(User::class);
     }
-    
+
     public function ratings()
     {
         return $this->hasMany(Rating::class);
@@ -69,7 +69,7 @@ class User extends Authenticatable
     public function bookingDetails()
     {
         return $this->hasManyThrough(
-            BookingDetail::class, 
+            BookingDetail::class,
             Booking::class
         );
     }
