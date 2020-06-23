@@ -24,4 +24,10 @@ Route::group(['middleware' => 'locale'], function () {
         Route::get('user/edit', 'UserController@edit')->name('user.edit');
         Route::post('user/update', 'UserController@update')->name('user.update');
     });
+
+    Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+        Route::get('/', 'AdminController@index')->name('admin.index');
+
+        Route::resource('users', 'UserController');
+    });
 });
