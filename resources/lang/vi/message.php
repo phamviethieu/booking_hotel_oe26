@@ -59,6 +59,7 @@ return [
         'price' => 'Giá',
         'list' => 'danh sách',
         'add' => 'Thêm',
+        'update' => 'Cập nhật',
         'edit' => 'Sửa',
         'delete' => 'Xóa',
         'search' => 'Tìm kiếm',
@@ -73,6 +74,7 @@ return [
         'more' => 'Tìm hiểu thêm',
         'save' => 'Lưu',
         'back' => 'Quay lại',
+        'adminPanel' => 'Trang quản lý',
     ],
     'lang' => [
         'vietnamese' => 'Tiếng Việt',

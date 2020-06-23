@@ -19,7 +19,9 @@ class UserController extends Controller
                 ->get();
 
             return view('functions.user_detail', compact('user', 'booking'));
-        } else return view('errors.404');
+        } else {
+            return view('errors.404');
+        }
     }
 
     public function edit()
@@ -31,7 +33,9 @@ class UserController extends Controller
                 ->get();
 
             return view('functions.user_edit', compact('user', 'booking'));
-        } else return view('errors.404');
+        } else {
+            return view('errors.404');
+        }
     }
 
     public function update(Request $request)

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
 <head>
-    <script src="{{ asset('bower_components/style_project1/js/headerGoogletagmanager.js') }}"></script>
+    <script type="text/javascript" src="{{ mix('js/googleTag.js') }}"></script>
     <title> @yield('title') </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
@@ -26,11 +26,8 @@
     <script src="{{ asset('bower_components/style_project1/js/respond.min.js') }}"></script>
 </head>
 <body>
-
-    @include('layouts.header')
+<div class="page_loader"></div>
     @yield('content')
-    @include('layouts.footer')
-
     <script src="{{ asset('bower_components/style_project1/js/jquery-2.2.0.min.js') }}"></script>
     <script src="{{ asset('bower_components/style_project1/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('bower_components/style_project1/js/bootstrap-submenu.js') }}"></script>
@@ -40,8 +37,6 @@
     <script src="{{ asset('bower_components/style_project1/js/jquery.easing.1.3.js') }} "></script>
     <script src="{{ asset('bower_components/style_project1/js/jquery.scrollUp.js') }}"></script>
     <script src="{{ asset('bower_components/style_project1/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
-    <script src="{{ asset('bower_components/style_project1/js/jquery.filterizr.js') }}"></script>
-    <script src="{{ asset('bower_components/style_project1/js/bootstrap-datepicker.min.js') }}"></script>
     <script src="{{ asset('bower_components/style_project1/js/app.js') }}"></script>
     <script src="{{ asset('bower_components/style_project1/js/ie10-viewport-bug-workaround.js') }}"></script>
 </body>

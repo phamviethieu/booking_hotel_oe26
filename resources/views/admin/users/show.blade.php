@@ -8,7 +8,7 @@
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item text-muted" contenteditable="false">
-                            <strong> {{ trans('message.userInfo') }} : {{ $user->name }}
+                            <strong> {{ trans('message.userInfo') }} &#58; {{ $user->name }}
                             </strong> &nbsp;
                             <div class="float-right">
                                 <a title="edit profile" href="{{ route('users.edit', $user->id) }}">
@@ -19,34 +19,34 @@
                         <li class="list-group-item ">
                         <span class="pull-left">
                             <strong class="">
-                                {{ trans('message.fullName') }}:
+                                {{ trans('message.fullName') }} &#58;
                             </strong></span>
                             {{ $user->name }}
                         </li>
                         <li class="list-group-item ">
                         <span class="pull-left">
-                            <strong class=""> {{ trans('message.join') }}: </strong>
+                            <strong class=""> {{ trans('message.join') }} &#58; </strong>
                         </span>
                             {{ date('d-m-Y', strtotime($user->created_at)) }}
                         </li>
                         <li class="list-group-item ">
                             <span class="pull-left">
-                                <strong class="">{{ trans('message.account') }}: </strong>
+                                <strong class="">{{ trans('message.account') }} &#58; </strong>
                             </span> {{ $user->username }}
                         </li>
                         <li class="list-group-item">
                             <span class="pull-left">
-                                <strong class="">{{ trans('message.email') }}: </strong>
+                                <strong class="">{{ trans('message.email') }} &#58; </strong>
                             </span> {{ $user->email }}
                         </li>
                         <li class="list-group-item">
                             <span class="pull-left">
-                                <strong class="">{{ trans('message.phoneNumber') }}: </strong>
+                                <strong class="">{{ trans('message.phoneNumber') }} &#58; </strong>
                             </span> {{ $user->phone_number }}
                         </li>
                         <li class="list-group-item">
                             <span class="pull-left">
-                                <strong class="">{{ trans('message.role') }}: </strong>
+                                <strong class="">{{ trans('message.role') }} &#58; </strong>
                             </span>
                             <span class="badge badge-success"> {{ $user->role->role }}</span></li>
 
