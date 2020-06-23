@@ -13,15 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['middleware' => 'locale'], function() {
+Route::group(['middleware' => 'locale'], function () {
     Auth::routes();
-
+    Route::get('/', 'HomeController@index')->name('home');
     Route::get('change-language/{language}', 'HomeController@changeLanguage')
         ->name('change_language');
 
-    Route::get('/', 'HomeController@index')->name('home');
-    Route::get('user', 'Client\UserController@index')->name('index');
-    Route::get('user/edit', 'Client\UserController@edit')->name('edit_user');
-    Route::post('user/update', 'Client\UserController@update')->name('user_update');
-
+    Route::group(['namespace' => 'Client'], function () {
+        Route::get('user', 'UserController@index')->name('user.index');
+        Route::get('user/edit', 'UserController@edit')->name('user.edit');
+        Route::post('user/update', 'UserController@update')->name('user.update');
+    });
 });
