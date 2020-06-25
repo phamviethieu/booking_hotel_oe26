@@ -18,12 +18,12 @@ Route::group(['middleware' => 'locale'], function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('change-language/{language}', 'HomeController@changeLanguage')
         ->name('change_language');
-    Route::group(['namespace' => 'Client'], function () {
-        Route::get('user', 'UserController@index')->name('user.index');
-        Route::get('user/edit', 'UserController@edit')->name('user.edit');
-        Route::post('user/update', 'UserController@update')->name('user.update');
+    Route::group(['namespace' => 'Client', 'prefix' => 'user'], function () {
+        Route::get('/', 'UserController@index')->name('user.index');
+        Route::get('edit', 'UserController@edit')->name('user.edit');
+        Route::post('update', 'UserController@update')->name('user.update');
+        Route::post('cancel', 'UserController@cancelBooking')->name('user.cancel_booking');
     });
-
     Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admin'], function () {
         Route::get('/', 'AdminController@index')->name('admin.index');
         Route::resource('users', 'UserController');
