@@ -51,10 +51,14 @@
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ route('user.index') }}">
+                                    <li>
+                                        <a href="{{ route('user.index') }}">
                                             {{ trans('message.infor_user.info') }}
                                         </a>
                                     </li>
+                                    @can('admin')
+                                        <li><a href="{{ route('admin.index') }}">{{ trans('message.functions.adminPanel') }}</a></li>
+                                    @endcan
                                     <li>
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
