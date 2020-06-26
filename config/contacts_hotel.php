@@ -21,5 +21,6 @@ return [
         'small-img-3',
         'small-img-6',
     ],
-    'avatar_user_default' => 'img/avatar/default.png',
+    'url_avatar_default' => 'img/avatar/',
+    'avatar_user_default' => 'default.png',
 ];

@@ -1,5 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
+    "/js/complete.js": "/js/complete.js",
     "/js/datatable.js": "/js/datatable.js",
+    "/js/deleteConfirm.js": "/js/deleteConfirm.js",
     "/js/googleTag.js": "/js/googleTag.js"
 }
