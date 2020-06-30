@@ -22,5 +22,7 @@ return [
         'small-img-6',
     ],
     'url_avatar_default' => 'img/avatar/',
+    'url_room_default' => 'img/room/',
     'avatar_user_default' => 'default.png',
+    'image_room_default' => 'default.png',
 ];

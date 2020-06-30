@@ -22,7 +22,7 @@
                         </a>
                     </li>
                     <li class="dropdown">
-                        <a href="" tabindex="0" aria-expanded="false">
+                        <a href="{{ route('rooms.index') }}" tabindex="0" aria-expanded="false">
                             {{ trans('message.room') }}
                         </a>
                     </li>
