@@ -7,12 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Image extends Model
 {
     protected $fillable = [
-        'image', 
+        'image',
         'room_id',
     ];
 
     public function room()
     {
         return $this->belongsTo(Room::class);
+    }
+
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
     }
 }
