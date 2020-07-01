@@ -9,7 +9,10 @@ class Image extends Model
     protected $fillable = [
         'image',
         'room_id',
+        'type_id',
     ];
+
+    public $timestamps = false;
 
     public function room()
     {
