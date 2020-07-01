@@ -5,4 +5,8 @@ return [
         'approved' => 1,
         'canceled' => 3,
     ],
+    'room_status' => [
+        'busy' => 0,
+        'ready' => 1,
+    ],
 ];
