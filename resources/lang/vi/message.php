@@ -101,6 +101,10 @@ return [
         'typeDeleted' => 'Xóa loại phòng thành công',
         'typeCreated' => 'Thêm loại thành công',
         'deleteType' => 'Không thể phục hồi',
+        'roomUpdated' => 'Cập nhật phòng thành công',
+        'roomDeleted' => 'Xóa phòng thành công',
+        'roomCreated' => 'Tạo phòng thành công',
+        'deleteRoom' => 'Phòng sẽ không thể khôi phục',
     ],
     'request' => [
         'image_type' => 'Hãy upload file ảnh &#33;',
@@ -116,6 +120,10 @@ return [
         'type' => 'Loại',
         'bookings_list' => 'Đơn đặt',
         'name' => 'Tên',
+    ],
+    'status' => [
+        'ready' => 'Sẵn sàng',
+        'waiting' => 'Phòng bận',
     ],
     'home' => 'Trang chủ',
     'room' => 'Phòng',

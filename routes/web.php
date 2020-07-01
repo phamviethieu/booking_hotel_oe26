@@ -31,5 +31,6 @@ Route::group(['middleware' => 'locale'], function () {
         Route::get('/', 'AdminController@index')->name('admin.index');
         Route::resource('users', 'UserController');
         Route::resource('types', 'TypeController');
+        Route::resource('rooms', 'RoomController');
     });
 });

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Booking;
+use App\Models\Hotel;
 use App\Models\Type;
 use App\Models\User;
 use Illuminate\Support\Facades\View;
@@ -30,11 +31,13 @@ class AppServiceProvider extends ServiceProvider
         $booking_count = Booking::count();
         $user_count = User::count();
         $types = Type::all();
+        $hotels = Hotel::all();
 
         View::share([
             'booking_count' => $booking_count,
             'user_count' => $user_count,
             'types' => $types,
+            'hotels' => $hotels,
         ]);
     }
 }

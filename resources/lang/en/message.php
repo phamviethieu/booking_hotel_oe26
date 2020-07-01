@@ -101,6 +101,10 @@ return [
         'typeDeleted' => 'Deleted type of room',
         'typeCreated' => 'Created type of room',
         'deleteType' => 'Deleted',
+        'roomUpdated' => 'Updated room',
+        'roomDeleted' => 'Deleted room',
+        'roomCreated' => 'Created a new room',
+        'deleteRoom' => 'Cannot to restore',
     ],
     'request' => [
         'image_type' => 'Please upload an image &#33;',
@@ -116,6 +120,10 @@ return [
         'type' => 'Type',
         'bookings_list' => 'List Booking',
         'name' => 'Name',
+    ],
+    'status' => [
+        'ready' => 'Ready',
+        'waiting' => 'Busy',
     ],
     'home' => 'Home',
     'room' => 'Room',
