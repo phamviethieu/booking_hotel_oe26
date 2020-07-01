@@ -15,8 +15,9 @@
     <link rel="stylesheet" href="{{ asset('bower_components/admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <link rel="stylesheet" href="{{ asset('bower_components/admin-lte/plugins/daterangepicker/daterangepicker.css') }}">
     <link rel="stylesheet" href="{{ asset('bower_components/admin-lte/plugins/summernote/summernote-bs4.css') }}">
-    <link href="{{ asset('bower_components/admin/style_project1/fonts/Sourc_Sans_Pro.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('bower_components/admin/style_project1/fonts/Sourc_Sans_Pro.css') }}" >
     <link rel="stylesheet" href="{{ asset('bower_components/admin-lte/plugins/sweetalert2/sweetalert2.css') }}">
+    <link rel="stylesheet" href="{{ asset('bower_components/admin-lte/plugins/toastr/toastr.min.css') }}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 
@@ -47,6 +48,10 @@
     <script src="{{ asset('bower_components/admin-lte/dist/js/pages/dashboard.js') }}"></script>
     <script src="{{ asset('bower_components/admin-lte/dist/js/demo.js') }}"></script>
     <script src="{{ asset('bower_components/admin-lte/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
+    <script src="{{ asset('bower_components/admin-lte/plugins/toastr/toastr.min.js') }}"></script>
+
+        @yield('script')
+    
     <script src="{{ mix('js/datatable.js') }}"></script>
     <script src="{{ asset('bower_components/style_project1/js/booking.js') }}"></script>
 </body>
