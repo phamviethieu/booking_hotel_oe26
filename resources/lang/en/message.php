@@ -120,6 +120,8 @@ return [
         'type' => 'Type',
         'bookings_list' => 'List Booking',
         'name' => 'Name',
+        'room_empty_booking' => 'This room currently empty booking &#33',
+        'room_detail' => 'Room Detail',
     ],
     'status' => [
         'ready' => 'Ready',

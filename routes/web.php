@@ -32,5 +32,7 @@ Route::group(['middleware' => 'locale'], function () {
         Route::resource('users', 'UserController');
         Route::resource('types', 'TypeController');
         Route::resource('rooms', 'RoomController');
+        Route::get('filter/room/{type_id}', 'RoomController@filterRoomByType');
+        Route::get('bookings-of-room/{id}', 'RoomController@bookingsOfRoom')->name('bookings_of_room');
     });
 });

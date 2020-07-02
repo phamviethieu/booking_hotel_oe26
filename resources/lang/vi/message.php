@@ -120,6 +120,8 @@ return [
         'type' => 'Loại',
         'bookings_list' => 'Đơn đặt',
         'name' => 'Tên',
+        'room_empty_booking' => 'Phòng này chưa có đơn đặt nào &#33',
+        'room_detail' => 'Chi tiết phòng',
     ],
     'status' => [
         'ready' => 'Sẵn sàng',
