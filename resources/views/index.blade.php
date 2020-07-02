@@ -15,7 +15,7 @@
                                     <span> {{ $hotel_name }} </span>
                                 </h1>
                                 <p data-animation="animated fadeInUp delay-1s">{{  config('contacts_hotel.description_' . config('app.locale')) }}</p>
-                                <a href=""
+                                <a href="@if(Auth::check()) {{ route('booking') }} @else {{ route('login') }} @endif"
                                    class="btn btn-md btn-theme"
                                    data-animation="animated fadeInUp delay-15s">
                                     {{ trans('message.functions.start') }} {{ trans('message.functions.now') }}

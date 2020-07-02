@@ -1,22 +1,23 @@
 {
-    "name": "booking_hotel_oe26",
-    "description": "",
-    "main": "",
-    "authors": [
-        "phamviethieu <pviethieu@gmail.com>"
-    ],
-    "license": "MIT",
-    "homepage": "https://github.com/phamviethieu/booking_hotel_oe26",
-    "ignore": [
-        "**/.*",
-        "node_modules",
-        "bower_components",
-        "public/bower_components",
-        "test",
-        "tests"
-    ],
-    "dependencies": {
-        "style_project1": "https://github.com/phamviethieu/style_project1.git",
-        "admin-lte": "^3.0.5"
-    }
+  "name": "booking_hotel_oe26",
+  "description": "",
+  "main": "",
+  "authors": [
+    "phamviethieu <pviethieu@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/phamviethieu/booking_hotel_oe26",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "style_project1": "https://github.com/phamviethieu/style_project1.git",
+    "admin-lte": "^3.0.5",
+    "eonasdan-bootstrap-datetimepicker": "https://github.com/Eonasdan/bootstrap-datetimepicker.git#^4.17.47"
+  }
 }
