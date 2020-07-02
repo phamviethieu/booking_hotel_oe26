@@ -152,15 +152,15 @@
                                             <div class="clearfix"></div>
                                             <div class="comment-body">
                                                 <p>{{ $comment->comment }}
-                                                    @can('edit-comment', $comment)
-                                                        <form action="" class="formDelete" method="POST">
+                                                    @canany(['edit-comment', 'admin'], $comment)
+                                                        <form action="{{ route('comments.destroy', $comment->id) }}" class="formDelete" method="POST">
                                                             @method('DELETE')
                                                             @csrf
-                                                            <button type="submit" id="btn-submit" class="btn btn-danger delete">
+                                                            <button type="submit" id="btn-submit" class="btn btn-danger formDelete">
                                                                 {{ trans('message.functions.delete') }}
                                                             </button>
                                                         </form>
-                                                    @endcan
+                                                    @endcanany
                                                 </p>
                                             </div>
                                         </div>
@@ -175,7 +175,7 @@
                                 <h1>{{ trans('message.functions.leave_a_comment') }}</h1>
                             </div>
                             <div class="contact-form">
-                                <form id="contact_form" action="" method="POST"
+                                <form id="contact_form" action="{{ route('comments.store') }}" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
@@ -183,8 +183,7 @@
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearfix">
                                             <div class="form-group message">
                                                 <textarea required class="input-text" name="comment"
-                                                    placeholder="{{ trans('message.functions.write_a_comment') }}">
-                                                </textarea>
+                                                    placeholder="{{ trans('message.functions.write_a_comment') }}"> </textarea>
                                             </div>
                                             @error('comment')
                                             <div class="alert alert-danger" role="alert">
@@ -275,14 +274,14 @@
     </div>
     <article
         id="delete"
-        data-title="{{  trans('message.sure') }}"
-        data-text="{{ trans('message.deleteComment') }}"
-        data-confirm="{{ trans('message.cancel') }}"
-        data-cancel="{{ trans('message.close') }}"
+        data-title="{{  trans('message.alert.sure') }}"
+        data-text="{{ trans('message.alert.delete_comment') }}"
+        data-confirm="{{ trans('message.alert.continue') }}"
+        data-cancel="{{ trans('message.alert.close') }}"
     >
     </article>
-@section('script')
-    <script src="{{ asset('js/format.js') }}"></script>
-    <script src="{{ asset('js/ajaxDeleteComment.js') }}"></script>
-@endsection
+    @section('script')
+        <script type="text/javascript" src="{{ asset('bower_components/style_project1/js/format.js') }}"></script>
+        @include('layouts.message')
+    @endsection
 @endsection

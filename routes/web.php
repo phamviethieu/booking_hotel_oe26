@@ -25,7 +25,8 @@ Route::group(['middleware' => 'locale'], function () {
             Route::post('update', 'UserController@update')->name('user.update');
             Route::post('cancel', 'UserController@cancelBooking')->name('user.cancel_booking');
         });
-        Route::resource('rooms', 'RoomController');
+        Route::resource('rooms', 'RoomController', ['as' => 'client']);
+        Route::resource('comments', 'CommentController')->only(['store', 'update', 'destroy']);
     });
     Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admin'], function () {
         Route::get('/', 'AdminController@index')->name('admin.index');

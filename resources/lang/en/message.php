@@ -105,6 +105,9 @@ return [
         'roomDeleted' => 'Deleted room',
         'roomCreated' => 'Created a new room',
         'deleteRoom' => 'Cannot to restore',
+        'delete_comment' => 'Delete this comment',
+        'comment_created' => 'Comment has been created',
+        'comment_deleted' => 'Comment has been deleted',
     ],
     'request' => [
         'image_type' => 'Please upload an image &#33;',
@@ -113,6 +116,8 @@ return [
         'email_required' => 'Email field is required',
         'phone_number_required' => 'Phone field is required',
         'email_true' => 'Email not legal',
+        'comment_required' => 'Please type comment',
+        'comment_max_character' => 'Content no more than 255 character',
     ],
     'admin' => [
         'admin' => 'Admin',
