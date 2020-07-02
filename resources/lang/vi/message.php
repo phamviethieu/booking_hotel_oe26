@@ -105,6 +105,9 @@ return [
         'roomDeleted' => 'Xóa phòng thành công',
         'roomCreated' => 'Tạo phòng thành công',
         'deleteRoom' => 'Phòng sẽ không thể khôi phục',
+        'delete_comment' => 'Xóa bình luận này',
+        'comment_created' => 'Bạn vừa viết một bình luận mới',
+        'comment_deleted' => 'Đã xóa bình luận',
     ],
     'request' => [
         'image_type' => 'Hãy upload file ảnh &#33;',
@@ -113,6 +116,8 @@ return [
         'email_required' => 'Vui lòng nhập email',
         'phone_number_required' => 'Vui lòng nhập số điện thoại',
         'email_true' => 'Email không hợp lệ',
+        'comment_required' => 'Vui lòng nhập nội dung comment',
+        'comment_max_character' => 'Nội dung không dài quá 255 ký tự',
     ],
     'admin' => [
         'admin' => 'Quản trị',

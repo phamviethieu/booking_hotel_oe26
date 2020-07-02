@@ -23,7 +23,7 @@
                                  {{ $room->price }}<sub>/{{ trans('message.night') }}</sub>
                             </div>
                             <h3>
-                                <a href="{{ route('rooms.show', [$room->id]) }}">{{ $room->name }}</a>
+                                <a href="{{ route('client.rooms.show', [$room->id]) }}">{{ $room->name }}</a>
                             </h3>
                             <h5 class="location">
                                 <p>

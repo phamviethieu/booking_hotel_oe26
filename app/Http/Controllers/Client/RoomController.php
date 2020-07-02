@@ -19,15 +19,19 @@ class RoomController extends Controller
 
     public function show($id)
     {
-        $type = Type::find($id);
-        $comment_recent = $type
-            ->comments()
-            ->latest('created_at')
-            ->first();
+        try {
+            $type = Type::find($id);
+            $comment_recent = $type
+                ->comments()
+                ->latest('created_at')
+                ->first();
 
-        return view('functions.room_detail', [
-            'type' => $type,
-            'comment_recent' => $comment_recent,
-        ]);
+            return view('functions.room_detail', [
+                'type' => $type,
+                'comment_recent' => $comment_recent,
+            ]);
+        } catch (ModelNotFoundException $e) {
+            return view('errors.404');
+        }
     }
 }
