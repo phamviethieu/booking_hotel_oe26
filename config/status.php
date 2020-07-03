@@ -9,4 +9,8 @@ return [
         'busy' => 0,
         'ready' => 1,
     ],
+    'booking_deposit' => [
+        'yes' => 1,
+        'no' => 0,
+    ],
 ];

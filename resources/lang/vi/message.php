@@ -41,6 +41,7 @@ return [
         'tools' => 'Công cụ',
         'not_enough_room' => 'Không đủ phòng để đặt',
         'booking_detail' => 'Đơn đặt phòng',
+        'total_price' => 'Tổng giá',
     ],
     'infor_user' => [
         'helloUser' => 'Chào bạn',
@@ -97,6 +98,8 @@ return [
         'next' => 'Tiếp',
         'previous' => 'Trước',
         'view' => 'Xem',
+        'yes' => 'Có',
+        'no' => 'Không',
     ],
     'lang' => [
         'vietnamese' => 'Tiếng Việt',
@@ -125,6 +128,7 @@ return [
         'illegal' => 'Thời gian đặt - trả phòng không hợp lệ',
         'time_not_enough' => 'Thời gian đặt phòng phải tối thiểu một tiếng',
         'thank_you_rating' => 'Cảm ơn bạn đã đánh giá !',
+        'booking_success' => 'Đặt phòng thành công',
     ],
     'request' => [
         'image_type' => 'Hãy upload file ảnh &#33;',

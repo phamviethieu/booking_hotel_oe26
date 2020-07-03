@@ -208,7 +208,7 @@
                             <h3>{{ trans('message.booking.booking') }}</h3>
                             <div class="form-group mrg-btm-10">
                                 <button class="search-button btn-theme">
-                                    <a href=""> {{ trans('message.booking.booking') }} {{ trans('message.functions.now') }} </a>
+                                    <a href="{{ route('booking') }}"> {{ trans('message.booking.booking') }} {{ trans('message.functions.now') }} </a>
                                 </button>
                             </div>
                         </div>

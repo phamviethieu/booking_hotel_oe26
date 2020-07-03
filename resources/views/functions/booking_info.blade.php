@@ -55,7 +55,7 @@
                         </ul>
                     </div>
                             <div class="tab-pane" role="tabpanel" id="step2">
-                                <form method="post" action="">
+                                <form method="post" action="{{ route('save_info') }}">
                                     @csrf
                                 <div class="row">
                                         <div class="col-lg-8 col-md-8 col-xs-12 col-md-push-4">
@@ -77,7 +77,7 @@
                                                             <label>
                                                                 {{ trans('message.infor_user.account') }}
                                                             </label>
-                                                            <input type="text" name="user_name" class="input-text" value="{{ $user->username }}">
+                                                            <input type="text" name="user_name" class="input-text" disabled value="{{ $user->username }}">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -103,7 +103,7 @@
                                                             <label>
                                                                 {{ trans('message.infor_user.email') }}
                                                             </label>
-                                                            <input type="email" name="email" class="input-text" value="{{ $user->email }}">
+                                                            <input type="email" name="email" class="input-text" disabled value="{{ $user->email }}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -111,7 +111,9 @@
                                         </div>
                                             <div class="col-lg-4 col-md-4 col-xs-12 col-md-pull-8">
                                             <div class="booling-details-box">
-                                                <h3 class="booking-heading-2">{{ trans('message.booking.booking_detail') }}</h3>
+                                                <h3 class="booking-heading-2">
+                                                    {{ trans('message.booking.booking_detail') }}
+                                                </h3>
                                                 <div class="rooms-detail-slider simple-slider ">
                                                     <div id="carousel-custom" class="carousel slide" data-ride="carousel">
                                                         <div class="carousel-outer">
@@ -126,7 +128,9 @@
                                                                 <span class="slider-mover-left no-bg" aria-hidden="true">
                                                                     <i class="fa fa-angle-left"></i>
                                                                 </span>
-                                                                <span class="sr-only">{{ trans('message.functions.previous') }}</span>
+                                                                <span class="sr-only">
+                                                                    {{ trans('message.functions.previous') }}
+                                                                </span>
                                                             </a>
                                                             <a class="right carousel-control" href="#carousel-custom" role="button" data-slide="next">
                                                                 <span class="slider-mover-right no-bg" aria-hidden="true">
@@ -137,26 +141,44 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <h4>{{ $type->name }}</h4>
+                                                <h4>
+                                                    {{ $type->name }}
+                                                    <input type ="hidden" name="type_id" value="{{ $type->id }}"/>
+                                                </h4>
                                                 <ul>
                                                     <li>
-                                                        <span>{{ trans('message.booking.bookingId') }}: </span> {{ $booking->id }}
+                                                        <span>
+                                                            {{ trans('message.booking.bookingId') }}:
+                                                        </span>
+                                                        {{ $booking->id }}
                                                         <input type ="hidden" name="booking_id" value="{{ $booking->id }}"/>
                                                     </li>
                                                     <li>
-                                                        <span>{{ trans('message.booking.checkin') }}:</span> {{ $booking->checkin }}
+                                                        <span>
+                                                            {{ trans('message.booking.checkin') }}:
+                                                        </span>
+                                                        {{ $booking->checkin }}
                                                     </li>
                                                     <li>
-                                                        <span>{{ trans('message.booking.checkout') }}:</span> {{ $booking->checkout }}
+                                                        <span>
+                                                            {{ trans('message.booking.checkout') }}:
+                                                        </span>
+                                                        {{ $booking->checkout }}
                                                     </li>
                                                     <li>
-                                                        <span>{{ trans('message.room') }}:</span>
-                                                        @foreach($room_name as $room_name) {{ trans('message.room')  }} {{ $room_name }} @endforeach
+                                                        <span>
+                                                            {{ trans('message.room') }}:
+                                                        </span>
+                                                        @foreach($room_name as $room_name)
+                                                            {{ trans('message.room')  }} {{ $room_name }}
+                                                        @endforeach
                                                     </li>
                                                 </ul>
                                                 <div class="price">
                                                     {{ trans('message.functions.price') }} :
-                                                    <span class="price" data-price="{{ $total }}">{{ $total }}</span>
+                                                    <span class="price" data-price="{{ $total }}">
+                                                        {{ $total }}
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>

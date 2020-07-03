@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
+use App\Models\User;
 use App\Models\Booking;
 use App\Models\BookingDetail;
 use App\Models\Room;
@@ -23,7 +24,6 @@ class BookingController extends Controller
             'types' => $types,
         ]);
     }
-
 
     public function price($room_number, $hours, $price)
     {
@@ -145,5 +145,47 @@ class BookingController extends Controller
 
             return redirect()->route('booking');
         }
+    }
+
+    public function saveInfo(Request $request)
+    {
+
+        if (Auth::check()) {
+            $user = Auth::user();
+            $user->name = $request->name;
+            $user->address = $request->address;
+            $user->phone_number = $request->phone_number;
+            $user->save();
+            $booking = Booking::with('rooms')
+                ->find($request->booking_id);
+            $type = Type::find($request->type_id);
+
+            return view('functions.booking_deposit', compact(
+                'user',
+                'booking',
+                'type'
+                )
+            );
+        }
+    }
+
+    public function deposit(Request $request)
+    {
+        $booking = Booking::find($request->booking_id);
+        $type = $booking
+            ->rooms
+            ->first()
+            ->type;
+        $booking->deposit = $request->deposit;
+        $booking->save();
+        $user = Auth::user();
+        Session::flash('message', trans('message.alert.booking_success'));
+        Session::flash('icon', 'success');
+
+        return view('functions.booking_complete', compact(
+            'booking',
+            'user',
+            'type')
+        );
     }
 }

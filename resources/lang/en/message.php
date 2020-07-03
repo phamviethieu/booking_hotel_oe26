@@ -41,6 +41,7 @@ return [
         'tools' => 'Tools',
         'not_enough_room' => 'We dont have enough room of this type for you',
         'booking_detail' => 'Booking Detail',
+        'total_price' => 'Total Price',
     ],
     'infor_user' => [
         'helloUser' => 'Hello',
@@ -97,6 +98,9 @@ return [
         'next' => 'Next',
         'previous' => 'Previous',
         'view' => 'View',
+        'yes' => 'Yes',
+        'no' => 'No',
+        'skip' => 'Skip',
     ],
     'lang' => [
         'vietnamese' => 'Vietnamese',
@@ -125,6 +129,7 @@ return [
         'illegal' => 'Checkin, checkout time illegal',
         'time_not_enough' => 'Time booking have to up 1 hour',
         'thank_you_rating' => 'Thank you for your feedback !',
+        'booking_success' => 'Booking was successfully',
     ],
     'request' => [
         'image_type' => 'Please upload an image &#33;',
