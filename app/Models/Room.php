@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Room extends Model
 {
     protected $fillable = [
-        'name', 
+        'name',
         'hotel_id',
         'type_id',
         'description',
@@ -23,7 +23,7 @@ class Room extends Model
     {
         return $this->belongsTo(Type::class);
     }
-    
+
     public function images()
     {
         return $this->hasMany(Image::class);
@@ -37,5 +37,15 @@ class Room extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function bookings()
+    {
+        return $this->belongsToMany(Booking::class, 'booking_details');
+    }
+
+    public function scopeOfType($query, $type)
+    {
+        return $query->where('type_id', $type);
     }
 }

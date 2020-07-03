@@ -21,6 +21,7 @@ return [
         'small-img-3',
         'small-img-6',
     ],
+    'prefix_booking_code' => 'MS2020',
     'currency' => 'đ',
     'url_avatar_default' => 'img/avatar/',
     'url_room_default' => 'img/room/',
