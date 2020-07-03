@@ -18,6 +18,9 @@ Route::group(['middleware' => 'locale'], function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('change-language/{language}', 'HomeController@changeLanguage')
         ->name('change_language');
+    Route::get('booking', 'BookingController@booking')->name('booking');
+    Route::post('select-room', 'BookingController@selectRoomAvailable')->name('select_room');
+
     Route::group(['namespace' => 'Client'], function () {
         Route::group(['prefix' => 'user'], function () {
             Route::get('/', 'UserController@index')->name('user.index');

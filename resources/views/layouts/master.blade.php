@@ -20,11 +20,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/style_project1/css/fontOpenSans.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/style_project1/css/ie10-viewport-bug-workaround.css') }}">
     <link rel="stylesheet" href="{{ asset('bower_components/admin-lte/plugins/sweetalert2/sweetalert2.css') }}">
-    <script src="{{ asset('bower_components/style_project1js/ie-emulation-modes-warning.js') }}"></script>
-    <script src="{{ asset('bower_components/style_project1/js/ie8-responsive-file-warning.js') }}"></script>
-    <script src="{{ asset('bower_components/style_project1/js/ie-emulation-modes-warning.js') }}"></script>
-    <script src="{{ asset('bower_components/style_project1/js/html5shiv.min.js') }}"></script>
-    <script src="{{ asset('bower_components/style_project1/js/respond.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css') }}" />
 </head>
 <body>
 
@@ -32,22 +28,22 @@
     @yield('content')
     @include('layouts.footer')
 
-    <script src="{{ asset('bower_components/style_project1/js/jquery-2.2.0.min.js') }}"></script>
-    <script src="{{ asset('bower_components/style_project1/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('bower_components/admin-lte/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
-
+    <script type="text/javascript" src="{{ asset('bower_components/style_project1/js/jquery-2.2.0.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bower_components/style_project1/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bower_components/admin-lte/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bower_components/style_project1/js/bootstrap-submenu.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bower_components/style_project1/js/jquery.mb.YTPlayer.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bower_components/style_project1/js/wow.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bower_components/style_project1/js/bootstrap-select.min.js') }} "></script>
+    <script type="text/javascript" src="{{ asset('bower_components/style_project1/js/jquery.easing.1.3.js') }} "></script>
+    <script type="text/javascript" src="{{ asset('bower_components/style_project1/js/jquery.scrollUp.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bower_components/style_project1/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bower_components/style_project1/js/jquery.filterizr.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bower_components/style_project1/js/bootstrap-datepicker.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bower_components/moment/min/moment.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bower_components/style_project1/js/app.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bower_components/style_project1/js/ie10-viewport-bug-workaround.js') }}"></script>
     @yield('script')
-
-    <script src="{{ asset('bower_components/style_project1/js/bootstrap-submenu.js') }}"></script>
-    <script src="{{ asset('bower_components/style_project1/js/jquery.mb.YTPlayer.js') }}"></script>
-    <script src="{{ asset('bower_components/style_project1/js/wow.min.js') }}"></script>
-    <script src="{{ asset('bower_components/style_project1/js/bootstrap-select.min.js') }} "></script>
-    <script src="{{ asset('bower_components/style_project1/js/jquery.easing.1.3.js') }} "></script>
-    <script src="{{ asset('bower_components/style_project1/js/jquery.scrollUp.js') }}"></script>
-    <script src="{{ asset('bower_components/style_project1/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
-    <script src="{{ asset('bower_components/style_project1/js/jquery.filterizr.js') }}"></script>
-    <script src="{{ asset('bower_components/style_project1/js/bootstrap-datepicker.min.js') }}"></script>
-    <script src="{{ asset('bower_components/style_project1/js/app.js') }}"></script>
-    <script src="{{ asset('bower_components/style_project1/js/ie10-viewport-bug-workaround.js') }}"></script>
 </body>
 </html>
