@@ -1,5 +1,6 @@
 <?php
 return [
+    'id' => 1,
     'name' => 'SUN HOTEL',
     'address' => 'Đền lừ, Hoàng Mai',
     'email' => 'sun@hotel.com',
@@ -27,4 +28,5 @@ return [
     'url_room_default' => 'img/room/',
     'avatar_user_default' => 'default.png',
     'image_room_default' => 'default.png',
+    'star_num' => 5,
 ];

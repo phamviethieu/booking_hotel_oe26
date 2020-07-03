@@ -9,7 +9,7 @@ class Rating extends Model
     protected $fillable = [
         'user_id',
         'hotel_id',
-        'rating',
+        'rate',
         'content',
     ];
 
@@ -17,7 +17,7 @@ class Rating extends Model
     {
         return $this->belongsTo(User::class);
     }
-    
+
     public function hotel()
     {
         return $this->belongsTo(Hotel::class);
