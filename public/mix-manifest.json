@@ -1,4 +1,6 @@
 {
+    "/js/booking.js": "/js/booking.js",
+    "/js/bookingDetailAjax.js": "/js/bookingDetailAjax.js",
     "/js/datatable.js": "/js/datatable.js",
     "/js/googleTag.js": "/js/googleTag.js",
     "/js/user_add_valid.js": "/js/user_add_valid.js"

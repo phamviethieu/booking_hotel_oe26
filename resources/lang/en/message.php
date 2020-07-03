@@ -130,6 +130,7 @@ return [
         'time_not_enough' => 'Time booking have to up 1 hour',
         'thank_you_rating' => 'Thank you for your feedback !',
         'booking_success' => 'Booking was successfully',
+        'delete_booking' => 'Delete this booking',
     ],
     'request' => [
         'image_type' => 'Please upload an image &#33;',
@@ -153,6 +154,10 @@ return [
     'status' => [
         'ready' => 'Ready',
         'waiting' => 'Busy',
+        'approved' => 'approved',
+        'canceled' => 'canceled',
+        'unapproved' => 'waiting',
+        'get_room' => 'Checked in',
     ],
     'home' => 'Home',
     'room' => 'Room',
@@ -169,4 +174,5 @@ return [
     'by' => 'By',
     'num_bed' => 'Beds',
     'max_people' => 'Peoples',
+    'notice' => 'Notice',
 ];

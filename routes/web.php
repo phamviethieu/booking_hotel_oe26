@@ -49,8 +49,13 @@ Route::group(['middleware' => 'locale'], function () {
         Route::resource('users', 'UserController');
         Route::resource('types', 'TypeController');
         Route::resource('rooms', 'RoomController');
+        Route::resource('bookings', 'BookingController');
         Route::get('filter/room/{type_id}', 'RoomController@filterRoomByType');
         Route::get('bookings-of-room/{id}', 'RoomController@bookingsOfRoom')
             ->name('bookings_of_room');
+        Route::get('view-detail/booking/{id}', 'BookingController@showDetails')
+            ->name('show_booking_details');
+        Route::post('bookings/update-status', 'BookingController@updateStatus')
+            ->name('update_status');
     });
 });
