@@ -11,7 +11,6 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .js('resources/js/datatable.js', 'public/js')
+mix.js('resources/js/datatable.js', 'public/js')
     .js('resources/js/googleTag.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+    .js('resources/js/user_add_valid.js', 'public/js');
