@@ -26,12 +26,13 @@
                             {{ trans('message.room') }}
                         </a>
                     </li>
-
-                    <li class="dropdown">
-                        <a tabindex="0" aria-expanded="false">
-                            {{ trans('message.contact') }}
-                        </a>
-                    </li>
+                    @if (Auth::check())
+                        <li class="dropadown">
+                            <a href={{ route('ratings.index') }} tabindex="0" aria-expanded="false">
+                                {{ trans('message.functions.feedback') }}
+                            </a>
+                        </li>
+                    @endif
                 </ul>
                 <ul class="nav navbar-nav navbar-right hidden-sm hidden-xs">
                     <li>
@@ -53,11 +54,16 @@
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a href="{{ route('user.index') }}">
+                                            <i class="fa fa-user"></i>&nbsp;
                                             {{ trans('message.infor_user.info') }}
                                         </a>
                                     </li>
-                                    @can('admin')
-                                        <li><a href="{{ route('admin.index') }}">{{ trans('message.functions.adminPanel') }}</a></li>
+                                    @can ('admin')
+                                        <li><a href="{{ route('admin.index') }}">
+                                                <i class="fa fa-wrench"></i>&nbsp;
+                                                {{ trans('message.functions.adminPanel') }}
+                                            </a>
+                                        </li>
                                     @endcan
                                     <li>
                                         <form method="POST" action="{{ route('logout') }}">

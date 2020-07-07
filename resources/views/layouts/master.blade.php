@@ -2,6 +2,7 @@
 <html lang="{{ config('app.locale') }}">
 <head>
     <script src="{{ asset('bower_components/style_project1/js/headerGoogletagmanager.js') }}"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title> @yield('title') </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">

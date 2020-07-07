@@ -30,6 +30,7 @@ Route::group(['middleware' => 'locale'], function () {
         });
         Route::resource('rooms', 'RoomController', ['as' => 'client']);
         Route::resource('comments', 'CommentController')->only(['store', 'update', 'destroy']);
+        Route::resource('ratings', 'RatingController')->middleware('auth');;
     });
     Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admin'], function () {
         Route::get('/', 'AdminController@index')->name('admin.index');

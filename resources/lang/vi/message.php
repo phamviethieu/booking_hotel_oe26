@@ -58,6 +58,9 @@ return [
     ],
     'functions' => [
         'admin' => 'Quản trị',
+        'feedback' => 'Phản hồi',
+        'rating' => 'Đăng',
+        'our_feedback' => 'Phản hồi của chúng tôi',
         'dashBoard' => 'Bảng điều khiển',
         'typeRoom' => 'Loại phòng',
         'roomList' => 'Danh sách phòng',
@@ -121,6 +124,7 @@ return [
         'comment_deleted' => 'Đã xóa bình luận',
         'illegal' => 'Thời gian đặt - trả phòng không hợp lệ',
         'time_not_enough' => 'Thời gian đặt phòng phải tối thiểu một tiếng',
+        'thank_you_rating' => 'Cảm ơn bạn đã đánh giá !',
     ],
     'request' => [
         'image_type' => 'Hãy upload file ảnh &#33;',

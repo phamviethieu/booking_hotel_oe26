@@ -58,6 +58,9 @@ return [
     ],
     'functions' => [
         'admin' => 'Admin',
+        'feedback' => 'Feed Back',
+        'rating' => 'Rate',
+        'our_feedback' => 'Our Feed Back',
         'dashBoard' => 'Dashboard',
         'typeRoom' => 'Room Type',
         'roomList' => 'Room List',
@@ -121,6 +124,7 @@ return [
         'comment_deleted' => 'Comment has been deleted',
         'illegal' => 'Checkin, checkout time illegal',
         'time_not_enough' => 'Time booking have to up 1 hour',
+        'thank_you_rating' => 'Thank you for your feedback !',
     ],
     'request' => [
         'image_type' => 'Please upload an image &#33;',

@@ -21,12 +21,14 @@ class HomeController extends Controller
     public function index()
     {
         try {
-            $hotel = Hotel::findorFail(1);
+            $hotel = Hotel::with('ratings')
+                ->findorFail(config('contacts_hotel.id'));
         } catch (ModelNotFoundException $e) {
             return view('errors.404');
         }
 
         return view('index', [
+            'hotel' => $hotel,
             'hotel_name' => $hotel->name,
             'hotel_slogan' => $hotel->slogan,
         ]);
