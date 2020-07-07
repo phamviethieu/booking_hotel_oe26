@@ -168,14 +168,15 @@
                                                             </h5>
                                                             <br>
                                                             <a class="btn btn-sm btn-theme"
-                                                               href="{{ route('rooms.show', $type->id) }}">{{ trans('message.viewDetail') }}</a>
+                                                               href="{{ route('client.rooms.show', $type->id) }}">{{ trans('message.viewDetail') }}</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             @endforeach
-                                            <div class="text-center">
-                                                {{ $types->links() }}
-                                            </div>
+
+                                        </div>
+                                        <div class="text-center">
+                                            {{ $types->links() }}
                                         </div>
                                     </div>
                                 </div>
