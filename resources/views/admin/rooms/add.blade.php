@@ -6,16 +6,20 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1>
-                            {{ trans('message.functions.add') }} {{ trans('message.room') }}
+                            {{ trans('message.functions.add') }} 
+                            {{ trans('message.room') }}
                         </h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item">
-                                <a href="#">{{ trans('message.home') }}</a>
+                                <a href="#">
+                                    {{ trans('message.home') }}
+                                </a>
                             </li>
                             <li class="breadcrumb-item active">
-                                {{ trans('message.functions.add') }} {{ trans('message.room') }}
+                                {{ trans('message.functions.add') }} 
+                                {{ trans('message.room') }}
                             </li>
                         </ol>
                     </div>
@@ -108,7 +112,9 @@
                                 </div>
                                 <div class="row pt-3">
                                     <span class="text-danger">*</span>
-                                    <small> {{ trans('message.functions.required') }} </small>
+                                    <small> 
+                                        {{ trans('message.functions.required') }} 
+                                    </small>
                                 </div>
                             </div>
                         </div>

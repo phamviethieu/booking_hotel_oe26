@@ -52,6 +52,9 @@ return [
         'email' => 'Email',
         'fullname' => 'Họ tên',
         'phoneNumber' => 'Số điện thoại',
+        'password' => 'Password',
+        'confirm_password' => 'Nhập lại mật khẩu',
+        'role' => 'Quyền',
     ],
     'functions' => [
         'admin' => 'Quản trị',
@@ -90,6 +93,7 @@ return [
         'social_media' => 'Mạng xã hội',
         'next' => 'Tiếp',
         'previous' => 'Trước',
+        'view' => 'Xem',
     ],
     'lang' => [
         'vietnamese' => 'Tiếng Việt',
@@ -108,6 +112,9 @@ return [
         'roomUpdated' => 'Cập nhật phòng thành công',
         'roomDeleted' => 'Xóa phòng thành công',
         'roomCreated' => 'Tạo phòng thành công',
+        'userUpdated' => 'Cập nhật thông tin thành công',
+        'userDeleted' => 'Đã xóa người ',
+        'userCreated' => 'Thêm thành công người dùng',
         'deleteRoom' => 'Phòng sẽ không thể khôi phục',
         'delete_comment' => 'Xóa bình luận này',
         'comment_created' => 'Bạn vừa viết một bình luận mới',

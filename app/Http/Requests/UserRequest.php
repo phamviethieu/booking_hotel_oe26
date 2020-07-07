@@ -25,6 +25,8 @@ class UserRequest extends FormRequest
     {
         return [
             'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'username' => 'unique:users,username',
+            'email' => 'unique:users,email',
             'name' => 'required',
             'phone_number' => 'required',
         ];

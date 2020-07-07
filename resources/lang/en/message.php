@@ -52,6 +52,9 @@ return [
         'email' => 'Email',
         'fullname' => 'Full Name',
         'phoneNumber' => 'Phone Number',
+        'password' => 'Password',
+        'confirm_password' => 'Confirm Password',
+        'role' => 'Role',
     ],
     'functions' => [
         'admin' => 'Admin',
@@ -90,6 +93,7 @@ return [
         'social_media' => 'Social media',
         'next' => 'Next',
         'previous' => 'Previous',
+        'view' => 'View',
     ],
     'lang' => [
         'vietnamese' => 'Vietnamese',
@@ -109,6 +113,9 @@ return [
         'roomDeleted' => 'Deleted room',
         'roomCreated' => 'Created a new room',
         'deleteRoom' => 'Cannot to restore',
+        'userUpdated' => 'Updated user successfully',
+        'userDeleted' => 'Deleted user',
+        'userCreated' => 'Created new user',
         'delete_comment' => 'Delete this comment',
         'comment_created' => 'Comment has been created',
         'comment_deleted' => 'Comment has been deleted',
