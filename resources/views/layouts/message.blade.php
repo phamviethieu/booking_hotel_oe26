@@ -5,6 +5,6 @@
         data-icon="{{ Session::get('icon') }}"
     >
     </article>
-    <script type="text/javascript" src="{{ asset('bower_components/style_project1/js/complete.js') }}"></script>
+    <script type="text/javascript" src="{{ mix('/js/complete.js') }}"></script>
 @endif
-<script src="{{ asset('bower_components/style_project1/js/formDeleteConfirm.js') }}"></script>
+<script src="{{ mix('/js/formDeleteConfirm.js') }}"></script>

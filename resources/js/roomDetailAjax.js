@@ -1,3 +1,4 @@
+
 $('body').on('click', '.roomDetail', function () {
     $.ajaxSetup({
         headers: {
@@ -6,7 +7,7 @@ $('body').on('click', '.roomDetail', function () {
     });
     $.ajax({
         type: "GET",
-        url: 'booking/room/' + $(this).data('id'),
+        url: 'bookings-of-room/' + $(this).data('id'),
         success: function (response) {
             $(".showBooking").html(response);
         }

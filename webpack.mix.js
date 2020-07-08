@@ -15,4 +15,10 @@ mix.js('resources/js/datatable.js', 'public/js')
     .js('resources/js/googleTag.js', 'public/js')
     .js('resources/js/user_add_valid.js', 'public/js')
     .js('resources/js/booking.js', 'public/js')
-    .js('resources/js/bookingDetailAjax.js', 'public/js');
+    .js('resources/js/bookingDetailAjax.js', 'public/js')
+    .js('resources/js/format.js', 'public/js')
+    .js('resources/js/formDeleteConfirm.js', 'public/js')
+    .js('resources/js/rating.js', 'public/js')
+    .js('resources/js/roomDetailAjax.js', 'public/js')
+    .js('resources/js/filter-room-by-type-ajax.js', 'public/js')
+    .js('resources/js/complete.js', 'public/js');

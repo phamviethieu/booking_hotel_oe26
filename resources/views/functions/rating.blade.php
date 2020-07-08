@@ -89,6 +89,6 @@
     >
     </article>
     @section('script')
-        <script src="{{ asset('bower_components/style_project1/js/rating.js') }}"></script>
+        <script src="{{ mix('/js/rating.js') }}"></script>
     @endsection
 @endsection

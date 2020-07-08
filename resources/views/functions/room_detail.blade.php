@@ -281,7 +281,7 @@
     >
     </article>
     @section('script')
-        <script type="text/javascript" src="{{ asset('bower_components/style_project1/js/format.js') }}"></script>
+        <script type="text/javascript" src="{{ mix('/js/format.js') }}"></script>
         @include('layouts.message')
     @endsection
 @endsection

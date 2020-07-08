@@ -1,7 +1,13 @@
 {
     "/js/booking.js": "/js/booking.js",
     "/js/bookingDetailAjax.js": "/js/bookingDetailAjax.js",
+    "/js/complete.js": "/js/complete.js",
     "/js/datatable.js": "/js/datatable.js",
+    "/js/filter-room-by-type-ajax.js": "/js/filter-room-by-type-ajax.js",
+    "/js/formDeleteConfirm.js": "/js/formDeleteConfirm.js",
+    "/js/format.js": "/js/format.js",
     "/js/googleTag.js": "/js/googleTag.js",
+    "/js/rating.js": "/js/rating.js",
+    "/js/roomDetailAjax.js": "/js/roomDetailAjax.js",
     "/js/user_add_valid.js": "/js/user_add_valid.js"
 }
