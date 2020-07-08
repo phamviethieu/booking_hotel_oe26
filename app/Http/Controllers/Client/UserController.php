@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
-use App\Models\Booking;
+use App\Repositories\Booking\BookingRepositoryInterface;
+use App\Repositories\User\UserRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -12,6 +13,18 @@ use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
+    protected $userRepo;
+    protected $bookingRepo;
+    private $status;
+
+    public function __construct(
+        UserRepositoryInterface $userRepo,
+        BookingRepositoryInterface $bookingRepo
+    )
+    {
+        $this->userRepo = $userRepo;
+        $this->bookingRepo = $bookingRepo;
+    }
 
     public function index()
     {
@@ -43,8 +56,6 @@ class UserController extends Controller
 
     public function update(UserRequest $request)
     {
-        $user = Auth::user();
-
         if ($request->hasFile('avatar')) {
             $file = $request->file('avatar');
             $name = $file->getClientOriginalName();
@@ -60,7 +71,7 @@ class UserController extends Controller
             $image = NULL;
         }
 
-        $user->update([
+        $this->userRepo->update(Auth::id(), [
             'avatar' => $image,
             'name' => $request->name,
             'phone_number' => $request->phone_number,
@@ -74,13 +85,8 @@ class UserController extends Controller
     public function cancelBooking(Request $request)
     {
         $id = $request->id;
-        try {
-            $booking = Booking::findorFail($id);
-        } catch (ModalNotFoundException $e) {
-            return view('errors.404');
-        }
-        $booking->status = config('status.booking_status.canceled');
-        $booking->update();
+        $this->status = config('status.booking_status.canceled');
+        $this->bookingRepo->updateStatus($id, $this->status);
         Session::flash('message', trans('message.deleteSuccess'));
         Session::flash('icon', 'success');
 

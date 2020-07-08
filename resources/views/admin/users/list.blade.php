@@ -94,7 +94,14 @@
                                             {{ $user->phone_number }}
                                         </td>
                                         <td>
-                                            <span class="badge badge-success">
+                                            @switch($user->role->id)
+                                                @case(config('role.admin'))
+                                                    <span class="badge badge-success">
+                                                @break
+                                                @case(config('role.user'))
+                                                    <span class="badge badge-dark">
+                                                @break
+                                            @endswitch
                                                 {{ $user->role->role }}
                                             </span>
                                         </td>
