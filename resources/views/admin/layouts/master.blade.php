@@ -51,8 +51,8 @@
     <script src="{{ asset('bower_components/admin-lte/plugins/toastr/toastr.min.js') }}"></script>
 
         @yield('script')
-    
+
     <script src="{{ mix('js/datatable.js') }}"></script>
-    <script src="{{ asset('bower_components/style_project1/js/booking.js') }}"></script>
+    <script src="{{ mix('/js/booking.js') }}"></script>
 </body>
 </html>

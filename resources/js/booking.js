@@ -36,7 +36,7 @@ $('body').on('click', '.cancel', function () {
             $(this).find("i").removeClass('fa-times-circle').addClass('fa-check-circle');
             $(this).removeClass('btn-default cancel').addClass('btn-success approve');
             $(this).attr("title", 'Duyệt');
-            $('.' + 'badge' + id).removeClass('badge-primary').addClass('badge-warning');
+            $('.' + 'badge' + id).removeClass('badge-success').addClass('badge-warning');
             $('.' + 'badge' + id).text('Chưa duyệt');
         }
     })

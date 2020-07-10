@@ -129,8 +129,8 @@
             data-cancel="{{ trans('message.alert.close') }}"
         >
         </article>
-        <script type="text/javascript" src="{{ asset('bower_components/style_project1/js/filter-room-by-type-ajax.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('bower_components/style_project1/js/roomDetailAjax.js') }}"></script>
+        <script type="text/javascript" src="{{ mix('/js/filter-room-by-type-ajax.js') }}"></script>
+        <script type="text/javascript" src="{{ mix('/js/roomDetailAjax.js') }}"></script>
         @include('admin.layouts.message')
     @endsection
 @endsection
