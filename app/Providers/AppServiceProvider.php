@@ -7,6 +7,12 @@ use App\Models\Hotel;
 use App\Models\Rating;
 use App\Models\Type;
 use App\Models\User;
+use App\Repositories\Booking\BookingRepository;
+use App\Repositories\Booking\BookingRepositoryInterface;
+use App\Repositories\Role\RoleRepository;
+use App\Repositories\Role\RoleRepositoryInterface;
+use App\Repositories\User\UserRepository;
+use App\Repositories\User\UserRepositoryInterface;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -19,7 +25,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(
+            UserRepositoryInterface::class,
+            UserRepository::class
+        );
+        $this->app->singleton(
+            RoleRepositoryInterface::class,
+            RoleRepository::class
+        );
+        $this->app->singleton(
+            BookingRepositoryInterface::class,
+            BookingRepository::class
+        );
     }
 
     /**
