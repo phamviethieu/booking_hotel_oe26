@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Session;
 
 class BookingController extends Controller
 {
-
     public function booking()
     {
         $types = Type::paginate(config('paginate.per_page'));

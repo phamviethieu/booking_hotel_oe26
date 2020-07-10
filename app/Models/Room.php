@@ -41,7 +41,7 @@ class Room extends Model
 
     public function bookings()
     {
-        return $this->belongsToMany(Booking::class, 'booking_details');
+        return $this->belongsToMany(Booking::class, 'booking_details', 'room_id', 'booking_id');
     }
 
     public function scopeOfType($query, $type)
