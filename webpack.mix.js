@@ -13,4 +13,6 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/datatable.js', 'public/js')
     .js('resources/js/googleTag.js', 'public/js')
-    .js('resources/js/user_add_valid.js', 'public/js');
+    .js('resources/js/user_add_valid.js', 'public/js')
+    .js('resources/js/booking.js', 'public/js')
+    .js('resources/js/bookingDetailAjax.js', 'public/js');

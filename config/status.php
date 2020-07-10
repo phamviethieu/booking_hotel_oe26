@@ -3,6 +3,7 @@ return [
     'booking_status' => [
         'waiting' => 0,
         'approved' => 1,
+        'get_room' => 2,
         'canceled' => 3,
     ],
     'room_status' => [

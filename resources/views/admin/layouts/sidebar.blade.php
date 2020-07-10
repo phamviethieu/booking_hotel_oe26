@@ -73,15 +73,28 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="" class="nav-link">
+                    <a href="{{ route('bookings.index') }}" class="nav-link">
                         <i class="fas fa-calendar nav-icon"></i>
                         {{ trans('message.admin.bookings_list') }}
+                        <span class="badge badge-warning badge-booking-list-unapprove"> {{ $booking_waiting }} </span>
+                        <span class="badge badge-success badge-booking-list-approved"> {{ $booking_approved }} </span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('users.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
                         <p>{{ trans('message.infor_user.user') }} </p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link text-right">
+                        <small>
+                            {{ trans('message.notice') }} :
+                            <span class="badge badge-warning">&nbsp;&nbsp;</span>
+                            {{ trans('message.status.unapproved') }} &nbsp;
+                            <span class="badge badge-success">&nbsp;&nbsp;</span>
+                            {{ trans('message.status.approved') }}
+                        </small>
                     </a>
                 </li>
             </ul>

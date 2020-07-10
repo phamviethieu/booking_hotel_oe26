@@ -42,6 +42,7 @@ return [
         'not_enough_room' => 'Không đủ phòng để đặt',
         'booking_detail' => 'Đơn đặt phòng',
         'total_price' => 'Tổng giá',
+        'get_room' => 'Đã nhận phòng',
     ],
     'infor_user' => [
         'helloUser' => 'Chào bạn',
@@ -129,6 +130,7 @@ return [
         'time_not_enough' => 'Thời gian đặt phòng phải tối thiểu một tiếng',
         'thank_you_rating' => 'Cảm ơn bạn đã đánh giá !',
         'booking_success' => 'Đặt phòng thành công',
+        'delete_booking' => 'Xóa đơn đặt phòng này',
     ],
     'request' => [
         'image_type' => 'Hãy upload file ảnh &#33;',
@@ -152,6 +154,9 @@ return [
     'status' => [
         'ready' => 'Sẵn sàng',
         'waiting' => 'Phòng bận',
+        'approved' => 'đã duyệt',
+        'canceled' => 'đã hủy',
+        'unapproved' => 'chưa duyệt',
     ],
     'home' => 'Trang chủ',
     'room' => 'Phòng',
@@ -169,4 +174,5 @@ return [
     'num_bed' => 'Giường',
     'max_people' => 'Người',
     'search' => 'Tìm kiếm',
+    'notice' => 'Ghi chú',
 ];
