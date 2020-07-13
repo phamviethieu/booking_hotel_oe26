@@ -25,6 +25,9 @@ $(document).ready(function () {
             data: form.serialize(),
             dataType: 'json',
             success: function (response) {
+                if (response == 1) {
+                    location.href = form.data('target');
+                }
             },
             error: function (json) {
                 console.log(json);

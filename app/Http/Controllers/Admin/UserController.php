@@ -22,6 +22,7 @@ class UserController extends Controller
         UserRepositoryInterface $userRepo,
         RoleRepositoryInterface $roleRepo
     )
+
     {
         $this->userRepo = $userRepo;
         $this->roleRepo = $roleRepo;
@@ -57,6 +58,8 @@ class UserController extends Controller
         $data = $request->all();
         $this->userRepo->create($data);
         Session::flash('created', trans('message.alert.userCreated'));
+
+        return true;
     }
 
     public function edit($id)
@@ -89,7 +92,7 @@ class UserController extends Controller
     {
         try {
             $this->userRepo->delete($id);
-            Session::flash('updated', trans('message.alert.userDeleted'));
+            Session::flash('deleted', trans('message.alert.userDeleted'));
 
             return redirect()->route('users.index');
         } catch (ModelNotFoundException $e) {
