@@ -1,5 +1,5 @@
 @extends('auth.master')
-@section('title', trans('auth.login'))
+@section('title', trans('message.auth.login'))
 @section('content')
     <div class="contact-bg overview-bgi">
         <div class="container">
@@ -13,21 +13,17 @@
                             <h3>{{ trans('message.auth.login') }}</h3>
                             <form action="{{ route('login' )}}" method="POST">
                                 @csrf
+                                @if ($errors)
+                                    @foreach ($errors->all() as $error)
+                                        <div class="alert-danger">{{ $error }}</div>
+                                    @endforeach
+                                @endif
+                                <br>
                                 <div class="form-group">
-                                    <input type="email" name="email" value="{{ old('email') }}" class="input-text" placeholder="{{ trans('message.infor_user.email') }}">
-                                    @error ('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                                    <input type="email" name="email" required value="{{ old('email') }}" class="input-text" placeholder="{{ trans('message.infor_user.email') }}">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" value="{{ old('password') }}" name="password" class="input-text" placeholder="Password">
-                                    @error ('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                                    <input type="password" required value="{{ old('password') }}" name="password" class="input-text" placeholder="Password">
                                 </div>
                                 <div class="checkbox">
                                     <div class="ez-checkbox pull-left">
@@ -36,13 +32,11 @@
                                                 {{ trans('message.functions.save') }} {{ trans("message.auth.login") }}
                                         </label>
                                     </div>
-                                    <a href="forgot-password.html" class="link-not-important pull-right">
-                                        {{ trans('message.auth.forgotPwd') }}
-                                    </a>
                                     <div class="clearfix"></div>
                                 </div>
+
                                 <div class="mb-0">
-                                    <button type="submit" class="btn-md btn-theme btn-block">
+                                    <button type="submit" class="btn-md btn-theme btn-login btn-block">
                                         {{ trans('message.auth.login') }}
                                     </button>
                                 </div>

@@ -10,6 +10,7 @@ return [
         'isMember' => 'Have an account?',
         'notMember' => 'You are not member',
         'forgotPwd' => 'Forgot Password',
+        'wrong_info' => 'Your email/password is not match with anyone',
     ],
     'errors' => [
         'title404' => 'File Not Found',
