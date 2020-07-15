@@ -1,5 +1,5 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <a href="#" class="brand-link">
+    <a href="{{ route('home') }}" class="brand-link">
         <span class="brand-text font-weight-light"> {{ config('contacts_hotel.name') }} </span>
     </a>
     <div class="sidebar">
@@ -9,20 +9,22 @@
                      class="img-circle elevation-2" alt="{{ trans('message.userImage') }}">
             </div>
             <div class="info">
-                <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+                <a href="{{ route('user.index') }}" class="d-block">
+                    {{ Auth::user()->name }}
+                </a>
             </div>
         </div>
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <li class="nav-item has-treeview menu-open">
-                    <a href="{{ route('admin.index') }}" class="nav-link active">
+                <li class="nav-item">
+                    <a href="{{ route('admin.index') }}" class="nav-link {{ Route::currentRouteName() == 'admin.index' ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             {{ trans('message.admin.dash_board') }}
                         </p>
                     </a>
                 </li>
-                <li class="nav-item has-treeview">
+                <li class="nav-item has-treeview {{ (request()->is('admin/types/*') || request()->is('admin/types')) ? 'menu-open' : '' }}">
                     <a href="" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
@@ -32,14 +34,14 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{  route('types.index') }}" class="nav-link">
+                            <a href="{{  route('types.index') }}" class="nav-link {{ Route::currentRouteName() == 'types.index' ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{ trans('message.functions.list') }}
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{  route('types.create') }}" class="nav-link">
+                            <a href="{{  route('types.create') }}" class="nav-link {{ Route::currentRouteName() == 'types.create' ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{ trans('message.functions.add') }}
                                 </p>
@@ -47,8 +49,7 @@
                         </li>
                     </ul>
                 </li>
-
-                <li class="nav-item has-treeview">
+                <li class="nav-item has-treeview {{ (request()->is('admin/rooms/*') || request()->is('admin/rooms')) ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link">
                         <i class="fas fa-hotel nav-icon"></i>
                         <p>
@@ -58,22 +59,21 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('rooms.index') }}" class="nav-link">
+                            <a href="{{ route('rooms.index') }}" class="nav-link {{ Route::currentRouteName() == 'rooms.index' ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{ trans('message.functions.list') }} </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('rooms.create') }}" class="nav-link">
+                            <a href="{{ route('rooms.create') }}" class="nav-link {{ Route::currentRouteName() == 'rooms.create' ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>{{ trans('message.functions.add') }} </p>
                             </a>
                         </li>
                     </ul>
                 </li>
-
                 <li class="nav-item">
-                    <a href="{{ route('bookings.index') }}" class="nav-link">
+                    <a href="{{ route('bookings.index') }}" class="nav-link {{ Route::currentRouteName() == 'bookings.index' ? 'active' : '' }}">
                         <i class="fas fa-calendar nav-icon"></i>
                         {{ trans('message.admin.bookings_list') }}
                         <span class="badge badge-warning badge-booking-list-unapprove"> {{ $booking_waiting }} </span>
@@ -81,7 +81,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('users.index') }}" class="nav-link">
+                    <a href="{{ route('users.index') }}" class="nav-link {{ Route::currentRouteName() == 'users.index' ? 'active' : '' }}">
                         <i class="nav-icon fas fa-user"></i>
                         <p>{{ trans('message.infor_user.user') }} </p>
                     </a>
