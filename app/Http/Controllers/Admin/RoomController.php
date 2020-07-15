@@ -17,14 +17,18 @@ class RoomController extends Controller
 
     public function index()
     {
-        $rooms = Room::paginate(config('paginate.paginations'));
+        $rooms = Room::with('type')
+            ->paginate(config('paginate.paginations'));
 
         return view('admin.rooms.list', compact('rooms'));
     }
 
     public function create()
     {
-        return view('admin.rooms.add');
+        $types = Type::all();
+        $hotels = Hotel::all();
+
+        return view('admin.rooms.add', compact('types', 'hotels'));
     }
 
     public function store(RoomRequest $request)
@@ -40,6 +44,8 @@ class RoomController extends Controller
     {
         try {
             $room = Room::findOrFail($id);
+            $types = Type::all();
+            $hotels = Hotel::all();
 
             return view('admin.rooms.edit', compact('room', 'types', 'hotels'));
         } catch (ModelNotFoundException $e) {
