@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
@@ -39,9 +41,22 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public function login(Request $request)
+    {
+        $credentials = [
+            'email' => $request->email,
+            'password' => $request->password
+        ];
+        if (Auth::attempt($credentials, $request->has('remember'))) {
+            return redirect()->route('home');
+        }
+        return redirect()->back()
+            ->withErrors(trans('message.auth.wrong_info'));
+    }
+
     public function logout()
     {
-        Session::flush();
+        Auth::logout();
 
         return redirect()->route('home');
     }

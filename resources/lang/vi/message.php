@@ -10,6 +10,7 @@ return [
         'isMember' => 'Đã là thành viên?',
         'notMember' => 'Không phải là thành viên',
         'forgotPwd' => 'Quên mật khẩu',
+        'wrong_info' => 'Email hoặc mật khẩu không đúng, hãy thử lại',
     ],
     'errors' => [
         'title404' => 'Không tìm thấy file',
