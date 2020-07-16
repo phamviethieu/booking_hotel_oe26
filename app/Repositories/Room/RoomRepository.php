@@ -11,4 +11,12 @@ class RoomRepository extends BaseRepository implements RoomRepositoryInterface
     {
         return Room::class;
     }
+
+    public function getRoomByType($data = [], $type_id)
+    {
+        return $this->model
+            ->with('type')
+            ->ofType($type_id)
+            ->get();
+    }
 }

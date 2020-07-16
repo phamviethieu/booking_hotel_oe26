@@ -3,14 +3,21 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
-use App\Models\Type;
+use App\Repositories\Type\TypeRepositoryInterface;
 use Illuminate\Http\Request;
 
 class RoomController extends Controller
 {
+    protected $typeRepo;
+
+    public function __construct(TypeRepositoryInterface $typeRepo)
+    {
+        $this->typeRepo = $typeRepo;
+    }
+
     public function index()
     {
-        $types = Type::paginate(config('paginate.paginations'));
+        $types = $this->typeRepo->paginate(config('paginate.paginations'));
 
         return view('functions.room_list', [
             'types' => $types,
@@ -20,11 +27,8 @@ class RoomController extends Controller
     public function show($id)
     {
         try {
-            $type = Type::find($id);
-            $comment_recent = $type
-                ->comments()
-                ->latest('created_at')
-                ->first();
+            $type = $this->typeRepo->find($id);
+            $comment_recent = $this->typeRepo->getCommentRecent($id);
 
             return view('functions.room_detail', [
                 'type' => $type,

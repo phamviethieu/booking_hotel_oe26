@@ -11,6 +11,8 @@ use App\Repositories\Booking\BookingRepository;
 use App\Repositories\Booking\BookingRepositoryInterface;
 use App\Repositories\BookingDetail\BookingDetailRepository;
 use App\Repositories\BookingDetail\BookingDetailRepositoryInterface;
+use App\Repositories\Hotel\HotelRepository;
+use App\Repositories\Hotel\HotelRepositoryInterface;
 use App\Repositories\Role\RoleRepository;
 use App\Repositories\Role\RoleRepositoryInterface;
 use App\Repositories\Room\RoomRepository;
@@ -37,6 +39,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(BookingDetailRepositoryInterface::class, BookingDetailRepository::class);
         $this->app->singleton(RoomRepositoryInterface::class, RoomRepository::class);
         $this->app->singleton(TypeRepositoryInterface::class, TypeRepository::class);
+        $this->app->singleton(HotelRepositoryInterface::class, HotelRepository::class);
     }
 
     /**

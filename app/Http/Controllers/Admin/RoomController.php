@@ -2,39 +2,50 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\Image;
-use App\Models\Room;
-use App\Models\Type;
-use App\Models\Hotel;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\RoomRequest;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Str;
+use App\Http\Controllers\Controller;
+use App\Repositories\Hotel\HotelRepositoryInterface;
+use App\Repositories\Room\RoomRepositoryInterface;
+use App\Repositories\Type\TypeRepositoryInterface;
 
 class RoomController extends Controller
 {
+    protected $typeRepo;
+    protected $roomRepo;
+    protected $hotelRepo;
 
+    public function __construct(
+        TypeRepositoryInterface $typeRepo,
+        RoomRepositoryInterface $roomRepo,
+        HotelRepositoryInterface $hotelRepo
+    ) {
+        $this->typeRepo = $typeRepo;
+        $this->roomRepo = $roomRepo;
+        $this->hotelRepo = $hotelRepo;
+    }
     public function index()
     {
-        $rooms = Room::with('type')
-            ->paginate(config('paginate.paginations'));
+        $rooms = $this->roomRepo
+            ->getWithAndPaginate('type', config('paginate.paginations'));
 
         return view('admin.rooms.list', compact('rooms'));
     }
 
     public function create()
     {
-        $types = Type::all();
-        $hotels = Hotel::all();
+        $types = $this->typeRepo->getAll();
+        $hotels = $this->hotelRepo->getAll();
 
         return view('admin.rooms.add', compact('types', 'hotels'));
     }
 
     public function store(RoomRequest $request)
     {
-        $room = $request->all();
-        $room = Room::create($room);
+        $data = $request->all();
+        $this->roomRepo->create($data);
         Session::flash('created', trans('message.alert.roomCreated'));
 
         return redirect()->route('rooms.index');
@@ -43,9 +54,9 @@ class RoomController extends Controller
     public function edit($id)
     {
         try {
-            $room = Room::findOrFail($id);
-            $types = Type::all();
-            $hotels = Hotel::all();
+            $room = $this->roomRepo->find($id);
+            $types = $this->typeRepo->getAll();
+            $hotels = $this->hotelRepo->getAll();
 
             return view('admin.rooms.edit', compact('room', 'types', 'hotels'));
         } catch (ModelNotFoundException $e) {
@@ -55,13 +66,7 @@ class RoomController extends Controller
 
     public function update(RoomRequest $request, $id)
     {
-        try {
-            $room = Room::findOrFail($id);
-
-        } catch (ModelNotFoundException $e) {
-            return view('errors.404');
-        }
-        $room->update($request->all());
+        $this->roomRepo->update($id, $request->all());
         Session::flash('updated', trans('message.alert.roomUpdated'));
 
         return redirect()->route('rooms.index');
@@ -70,21 +75,19 @@ class RoomController extends Controller
     public function destroy($id)
     {
         try {
-            $room = Room::findOrFail($id);
+           $this->roomRepo->delete($id);
         } catch (ModelNotFoundException $e) {
-
             return view('errors.404');
         }
-        $room->delete();
+
         Session::flash('deleted', trans('message.alert.roomDeleted'));
         Session::flash('icon', trans('success'));
-
         return redirect()->route('rooms.index');
     }
 
     public function bookingsOfRoom($id)
     {
-        $room = Room::with('bookings')->find($id);
+        $room = $this->roomRepo->findWith($id, 'bookings');
 
         if ($room->bookings->count()) {
             $response = '';
@@ -115,7 +118,7 @@ class RoomController extends Controller
 
     public function filterRoomByType($type_id)
     {
-        $rooms = Room::with('type')->ofType($type_id)->get();
+        $rooms = $this->roomRepo->getRoomByType('type', $type_id);
         $response = '<div class="card-body pb-0 ">
                     <div class="row d-flex align-items-stretch ">';
         foreach ($rooms as $room) {
