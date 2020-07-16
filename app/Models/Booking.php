@@ -26,4 +26,9 @@ class Booking extends Model
     {
         return $this->belongsToMany(Room::class, 'booking_details', 'booking_id', 'room_id');
     }
+
+    public function bookingDetails()
+    {
+        return $this->hasMany(BookingDetail::class);
+    }
 }

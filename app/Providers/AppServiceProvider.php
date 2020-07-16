@@ -9,8 +9,14 @@ use App\Models\Type;
 use App\Models\User;
 use App\Repositories\Booking\BookingRepository;
 use App\Repositories\Booking\BookingRepositoryInterface;
+use App\Repositories\BookingDetail\BookingDetailRepository;
+use App\Repositories\BookingDetail\BookingDetailRepositoryInterface;
 use App\Repositories\Role\RoleRepository;
 use App\Repositories\Role\RoleRepositoryInterface;
+use App\Repositories\Room\RoomRepository;
+use App\Repositories\Room\RoomRepositoryInterface;
+use App\Repositories\Type\TypeRepository;
+use App\Repositories\Type\TypeRepositoryInterface;
 use App\Repositories\User\UserRepository;
 use App\Repositories\User\UserRepositoryInterface;
 use Illuminate\Support\Facades\View;
@@ -25,18 +31,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(
-            UserRepositoryInterface::class,
-            UserRepository::class
-        );
-        $this->app->singleton(
-            RoleRepositoryInterface::class,
-            RoleRepository::class
-        );
-        $this->app->singleton(
-            BookingRepositoryInterface::class,
-            BookingRepository::class
-        );
+        $this->app->singleton(UserRepositoryInterface::class, UserRepository::class);
+        $this->app->singleton(RoleRepositoryInterface::class, RoleRepository::class);
+        $this->app->singleton(BookingRepositoryInterface::class, BookingRepository::class);
+        $this->app->singleton(BookingDetailRepositoryInterface::class, BookingDetailRepository::class);
+        $this->app->singleton(RoomRepositoryInterface::class, RoomRepository::class);
+        $this->app->singleton(TypeRepositoryInterface::class, TypeRepository::class);
     }
 
     /**

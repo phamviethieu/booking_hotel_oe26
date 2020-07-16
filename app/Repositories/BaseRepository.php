@@ -43,6 +43,17 @@ abstract class BaseRepository implements RepositoryInterface
         return $result;
     }
 
+    public function findWith($id, $attributes = [])
+    {
+        try {
+            $result = $this->model->with($attributes)->findOrFail($id);
+        } catch (ModelNotFoundException $e) {
+            return false;
+        }
+
+        return $result;
+    }
+
     public function create($data = [])
     {
         return $this->model->create($data);

@@ -3,27 +3,40 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Booking;
-use App\Models\Room;
-use App\Models\Type;
+use App\Repositories\Booking\BookingRepositoryInterface;
+use App\Repositories\Room\RoomRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class BookingController extends Controller
 {
+    protected $bookingRepo;
+    protected $roomRepo;
+
+    public function __construct(
+        BookingRepositoryInterface $bookingRepo,
+        RoomRepositoryInterface $roomRepo
+    ) {
+        $this->bookingRepo = $bookingRepo;
+        $this->roomRepo = $roomRepo;
+    }
+
     public function index()
     {
-        $booking = Booking::with(['rooms', 'user'])
-            ->orderBy('created_at', 'DESC')
-            ->get();
+        $booking = $this->bookingRepo
+            ->getWithOrderBy(
+                ['rooms', 'user'],
+                'created_at',
+                'DESC'
+            );
 
-        return view('admin.bookings.list', compact('booking'));
+        return view('admin.bookings.list',
+            compact('booking'));
     }
 
     public function showAllRoom()
     {
-
-        $room = Room::all();
+        $room = $this->roomRepo->getAll();
 
         return view('booking_detail', [
             'room' => $room,
@@ -33,13 +46,11 @@ class BookingController extends Controller
     public function destroy($id)
     {
         try {
-            $booking = Booking::findOrFail($id);
-            $booking->delete();
+            $this->bookingRepo->delete($id);
             Session::flash('deleted', trans('message.deleted'));
             Session::flash('icon', trans('success'));
 
             return redirect()->route('bookings.index');
-
         } catch (ModelNotFoundException $e) {
             return view('errors.404');
         }
@@ -47,14 +58,18 @@ class BookingController extends Controller
 
     public function updateStatus(Request $request)
     {
-        $booking = Booking::find($request->id);
-        $booking->status = $request->status ?? $booking->status;
+        $id = $request->id;
+        $booking = $this->bookingRepo->find($id);
+        $status = $request->status ?? $booking->status;
         if ($request->deposit) {
-            $booking->deposit = $request->deposit;
+            $deposit = $request->deposit;
+            $this->bookingRepo->updateDeposit($id, $deposit);
         }
-        $booking->save();
-        $approve_booking_count = $booking->where('status', config('status.booking_status.approved'))->count();
-        $unapprove_booking_count = $booking->where('status', config('status.booking_status.waiting'))->count();
+        $this->bookingRepo->updateStatus($id, $status);
+        $approve_booking_count = $this->bookingRepo
+            ->countByStatus(config('status.booking_status.approved'));
+        $unapprove_booking_count = $this->bookingRepo
+            ->countByStatus(config('status.booking_status.waiting'));
 
         return response()->json([
             'approve_booking_count' => $approve_booking_count,
@@ -64,7 +79,7 @@ class BookingController extends Controller
 
     public function showDetails($id)
     {
-        $booking = Booking::find($id);
+        $booking = $this->bookingRepo->find($id);
         $booking->user_name = $booking->user->name;
         $booking->phone_number = $booking->user->phone_number;
         $booking->email = $booking->user->email;

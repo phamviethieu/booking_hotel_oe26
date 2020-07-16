@@ -7,7 +7,7 @@ use App\Repositories\BaseRepository;
 
 class RoleRepository extends BaseRepository implements RoleRepositoryInterface
 {
-    function getModel()
+    public function getModel()
     {
         return Role::class;
     }
