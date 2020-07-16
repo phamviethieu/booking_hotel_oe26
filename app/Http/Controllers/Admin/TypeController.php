@@ -3,20 +3,34 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Image;
-use App\Models\Video;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Models\Type;
 use App\Http\Requests\TypeRequest;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Str;
+use App\Repositories\Image\ImageRepositoryInterface;
+use App\Repositories\Video\VideoRepositoryInterface;
+use App\Repositories\Type\TypeRepositoryInterface;
 
 class TypeController extends Controller
 {
+    protected $imageRepo;
+    protected $videoRepo;
+    protected $typeRepo;
+
+    public function __construct(
+        ImageRepositoryInterface $imageRepo,
+        VideoRepositoryInterface $videoRepo,
+        TypeRepositoryInterface $typeRepo
+    ) {
+        $this->imageRepo = $imageRepo;
+        $this->videoRepo = $videoRepo;
+        $this->typeRepo = $typeRepo;
+    }
 
     public function index()
     {
-        $types = Type::paginate(config('paginate.paginations'));
+        $types = $this->typeRepo
+            ->paginate(config('paginate.paginations'));
 
         return view('admin.types.list', compact('types'));
     }
@@ -28,9 +42,9 @@ class TypeController extends Controller
 
     public function store(Request $request)
     {
-        $type = Type::create($request->all());
+        $type = $this->typeRepo->create($request->all());
 
-        Video::create([
+        $this->videoRepo->create([
             'type_id' => $type->id,
             'video' => $request->input('video'),
         ]);
@@ -43,7 +57,7 @@ class TypeController extends Controller
                 }
                 $image->move(config('contacts_hotel.url_room_default'), $name);
 
-                Image::create([
+                $this->imageRepo->create([
                     'image' => $name,
                     'type_id' => $type->id,
                 ]);
@@ -57,7 +71,7 @@ class TypeController extends Controller
     public function edit($id)
     {
         try {
-            $type = Type::findOrFail($id);
+            $type = $this->typeRepo->find($id);
 
             return view('admin.types.edit', compact('type'));
         } catch (ModelNotFoundException $e) {
@@ -68,10 +82,8 @@ class TypeController extends Controller
     public function update(TypeRequest $request, $id)
     {
         try {
-            $type = Type::with('images')->findOrFail($id);
-            $video = Video::findOrFail($request->input('video_id'));
-
-            $video->update([
+            $type = $this->typeRepo->findWith($id, 'images');
+            $this->videoRepo->update($request->input('video_id'), [
                 'video' => $request->input('video')
             ]);
             if ($images = $request->image) {
@@ -85,7 +97,7 @@ class TypeController extends Controller
                         $name = Str::random(config('config.random_prefix_file_name')) . "_" . $name;
                     }
                     $image->move(config('contacts_hotel.url_room_default'), $name);
-                    Image::create([
+                    $this->imageRepo->create([
                         'image' => $name,
                         'type_id' => $type->id,
                     ]);
@@ -94,7 +106,7 @@ class TypeController extends Controller
         } catch (ModelNotFoundException $e) {
             return view('errors.404');
         }
-        $type->update($request->all());
+        $this->typeRepo->update($id, $request->all());
         Session::flash('updated', trans('message.alert.typeUpdated'));
 
         return redirect()->route('types.index');
@@ -103,11 +115,11 @@ class TypeController extends Controller
     public function destroy($id)
     {
         try {
-            $type = Type::findOrFail($id);
+            $this->typeRepo->delete($id);
         } catch (ModelNotFoundException $e) {
             return view('errors.404');
         }
-        $type->delete();
+
         Session::flash('deleted', trans('message.alert.typeDeleted'));
         Session::flash('icon', trans('success'));
 
