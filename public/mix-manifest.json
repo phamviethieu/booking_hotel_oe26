@@ -1,6 +1,7 @@
 {
     "/js/booking.js": "/js/booking.js",
     "/js/bookingDetailAjax.js": "/js/bookingDetailAjax.js",
+    "/js/chart.js": "/js/chart.js",
     "/js/complete.js": "/js/complete.js",
     "/js/datatable.js": "/js/datatable.js",
     "/js/filter-room-by-type-ajax.js": "/js/filter-room-by-type-ajax.js",

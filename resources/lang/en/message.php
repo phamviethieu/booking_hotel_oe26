@@ -146,8 +146,10 @@ return [
     'admin' => [
         'admin' => 'Admin',
         'dash_board' => 'Dash Board',
+        'view' => 'View Detail',
         'type' => 'Type',
         'bookings_list' => 'List Booking',
+        'booking_waiting' => 'Booking waiting',
         'name' => 'Name',
         'room_empty_booking' => 'This room currently empty booking &#33',
         'room_detail' => 'Room Detail',
@@ -159,6 +161,27 @@ return [
         'canceled' => 'canceled',
         'unapproved' => 'waiting',
         'get_room' => 'Checked in',
+    ],
+    'chart' => [
+        'title_revenue_chart' => 'Revenue Statistics by month',
+        'revenue' => 'Revenue',
+        'month' => [
+            'Jan',
+            'Feb',
+            'Mar',
+            'Apr',
+            'May',
+            'Jun',
+            'Jul',
+            'Aug',
+            'Sep',
+            'Oct',
+            'Nov',
+            'Dec'
+        ],
+    ],
+    'title' => [
+        'admin_index' => 'BOOKING HOTEL SYS - ADMIN MANAGER',
     ],
     'home' => 'Home',
     'room' => 'Room',

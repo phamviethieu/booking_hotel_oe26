@@ -146,8 +146,10 @@ return [
     'admin' => [
         'admin' => 'Quản trị',
         'dash_board' => 'Bảng điều khiển',
+        'view' => 'Xem chi tiết',
         'type' => 'Loại',
         'bookings_list' => 'Đơn đặt',
+        'booking_waiting' => 'Đơn chưa duyệt',
         'name' => 'Tên',
         'room_empty_booking' => 'Phòng này chưa có đơn đặt nào &#33',
         'room_detail' => 'Chi tiết phòng',
@@ -158,6 +160,27 @@ return [
         'approved' => 'đã duyệt',
         'canceled' => 'đã hủy',
         'unapproved' => 'chưa duyệt',
+    ],
+    'chart' => [
+        'title_revenue_chart' => 'Thống kê doanh thu theo tháng',
+        'revenue' => 'Doanh thu',
+        'month' => [
+            'Thg 1',
+            'Thg 2',
+            'Thg 3',
+            'Thg 4',
+            'Thg 5',
+            'Thg 6',
+            'Thg 7',
+            'Thg 8',
+            'Thg 9',
+            'Thg 10',
+            'Thg 11',
+            'Thg 12'
+        ],
+    ],
+    'title' => [
+        'admin_index' => 'TRANG QUẢN TRỊ - HỆ THỐNG ĐẶT PHÒNG KHÁCH SẠN',
     ],
     'home' => 'Trang chủ',
     'room' => 'Phòng',

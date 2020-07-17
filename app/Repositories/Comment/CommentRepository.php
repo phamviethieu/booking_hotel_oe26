@@ -7,7 +7,7 @@ use App\Repositories\BaseRepository;
 
 class CommentRepository extends BaseRepository implements CommentRepositoryInterface
 {
-    function getModel()
+    public function getModel()
     {
         return Comment::class;
     }

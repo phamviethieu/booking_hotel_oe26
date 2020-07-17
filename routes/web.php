@@ -57,5 +57,6 @@ Route::group(['middleware' => 'locale'], function () {
             ->name('show_booking_details');
         Route::post('bookings/update-status', 'BookingController@updateStatus')
             ->name('update_status');
+        Route::get('/get-data-chart', 'AdminController@dataChart');
     });
 });
