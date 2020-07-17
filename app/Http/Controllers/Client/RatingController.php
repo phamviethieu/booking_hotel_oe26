@@ -4,12 +4,18 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RatingRequest;
-use App\Models\Rating;
+use App\Repositories\Rating\RatingRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class RatingController extends Controller
 {
+    protected $ratingRepo;
+
+    public function __construct(RatingRepositoryInterface $ratingRepo)
+    {
+        $this->ratingRepo = $ratingRepo;
+    }
 
     public function index()
     {
@@ -23,8 +29,7 @@ class RatingController extends Controller
     public function update(RatingRequest $request, $id)
     {
         try {
-            $rate = Rating::findOrFail($id);
-            $rate->update([
+            $this->ratingRepo->update($id, [
                 'rate' => $request->rate,
                 'content' => $request->input('content'),
             ]);
@@ -39,7 +44,8 @@ class RatingController extends Controller
     public function store(RatingRequest $request)
     {
         $user_id = Auth::id();
-        Rating::create([
+        
+        $this->ratingRepo->create([
             'user_id' => $user_id,
             'hotel_id' => config('contacts_hotel.id'),
             'rate' => $request->rate,
