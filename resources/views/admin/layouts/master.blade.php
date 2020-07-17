@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ asset('bower_components/admin/style_project1/fonts/Sourc_Sans_Pro.css') }}" >
     <link rel="stylesheet" href="{{ asset('bower_components/admin-lte/plugins/sweetalert2/sweetalert2.css') }}">
     <link rel="stylesheet" href="{{ asset('bower_components/admin-lte/plugins/toastr/toastr.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/chart.js/dist/Chart.min.css') }}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 
@@ -49,6 +50,7 @@
     <script src="{{ asset('bower_components/admin-lte/dist/js/demo.js') }}"></script>
     <script src="{{ asset('bower_components/admin-lte/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
     <script src="{{ asset('bower_components/admin-lte/plugins/toastr/toastr.min.js') }}"></script>
+    <script src="{{ asset('bower_components/chart.js/dist/Chart.js') }}"></script>
 
         @yield('script')
 

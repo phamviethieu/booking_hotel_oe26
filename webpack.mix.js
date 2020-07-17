@@ -21,4 +21,5 @@ mix.js('resources/js/datatable.js', 'public/js')
     .js('resources/js/rating.js', 'public/js')
     .js('resources/js/roomDetailAjax.js', 'public/js')
     .js('resources/js/filter-room-by-type-ajax.js', 'public/js')
-    .js('resources/js/complete.js', 'public/js');
+    .js('resources/js/complete.js', 'public/js')
+    .js('resources/js/chart.js', 'public/js');

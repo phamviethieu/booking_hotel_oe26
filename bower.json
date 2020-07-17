@@ -18,6 +18,7 @@
   "dependencies": {
     "style_project1": "https://github.com/phamviethieu/style_project1.git",
     "admin-lte": "^3.0.5",
-    "eonasdan-bootstrap-datetimepicker": "https://github.com/Eonasdan/bootstrap-datetimepicker.git#^4.17.47"
+    "eonasdan-bootstrap-datetimepicker": "https://github.com/Eonasdan/bootstrap-datetimepicker.git#^4.17.47",
+    "chart.js": "^2.9.3"
   }
 }

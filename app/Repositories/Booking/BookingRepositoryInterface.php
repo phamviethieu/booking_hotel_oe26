@@ -27,7 +27,6 @@ interface BookingRepositoryInterface
      * @param  integer $status
      * @return interger
      */
-
     public function countByStatus($status);
 
     /**

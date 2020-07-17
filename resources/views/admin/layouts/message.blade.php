@@ -1,6 +1,5 @@
 <article
     id="delete"
-    data-title="{{  trans('message.title') }}"
     data-text="{{ trans('message.cancelBooking') }}"
     data-confirm="{{ trans('message.continue') }}"
     data-cancel="{{ trans('message.close') }}"
