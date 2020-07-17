@@ -32,6 +32,11 @@ abstract class BaseRepository implements RepositoryInterface
             ->get();
     }
 
+    public function getWithAndPaginate($data, $perPage)
+    {
+        return $this->model->with($data)->paginate($perPage);
+    }
+
     public function find($id)
     {
         try {

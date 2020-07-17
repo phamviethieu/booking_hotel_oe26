@@ -85,3 +85,4 @@ class BookingRepository extends BaseRepository implements BookingRepositoryInter
             ->get();
     }
 }
+

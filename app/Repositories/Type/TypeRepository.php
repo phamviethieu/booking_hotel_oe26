@@ -17,4 +17,10 @@ class TypeRepository extends BaseRepository implements TypeRepositoryInterface
         return $this->model->paginate($perpage);
     }
 
+    public function getCommentRecent($type_id)
+    {
+        return $this->model->find($type_id)->comments()
+            ->latest('created_at')
+            ->first();
+    }
 }
