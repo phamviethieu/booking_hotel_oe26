@@ -183,6 +183,13 @@ return [
     'title' => [
         'admin_index' => 'BOOKING HOTEL SYS - ADMIN MANAGER',
     ],
+    'notification' => [
+        'notification' => 'Notifications',
+        'seeAll' => 'View All',
+        'emptyNoti' => 'You dont have any notification',
+        'alert' => 'You have a new notification',
+        'titlePopUp' => 'Booking Notification',
+    ],
     'home' => 'Home',
     'room' => 'Room',
     'welcome' => 'Welcome to',

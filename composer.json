@@ -16,7 +16,9 @@
         "laravel/dusk": "^6.4",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "^2.0"
+        "laravel/ui": "^2.0",
+        "pusher/pusher-php-server": "~4.0",
+      "ext-json": "*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.3",

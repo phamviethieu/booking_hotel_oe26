@@ -14,4 +14,8 @@ return [
         'yes' => 1,
         'no' => 0,
     ],
+    'noti' => [
+        'unread' => 0,
+        'read' => 1,
+    ]
 ];

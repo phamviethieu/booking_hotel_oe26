@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Notification;
 use DB;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -12,6 +13,7 @@ use App\Repositories\BookingDetail\BookingDetailRepositoryInterface;
 use App\Repositories\Room\RoomRepositoryInterface;
 use App\Repositories\Type\TypeRepositoryInterface;
 use App\Repositories\User\UserRepositoryInterface;
+use Pusher\Pusher;
 
 class BookingController extends Controller
 {
@@ -162,6 +164,33 @@ class BookingController extends Controller
         $deposit = $request->deposit;
         $this->bookingRepo->updateDeposit($booking_id, $deposit);
         $user = Auth::user();
+
+        $noti['booking_id'] = $request->booking_id;
+        $noti['type'] = $type->name;
+        $noti['user'] = $user->email;
+        $data = json_encode($noti);
+
+        $notification = Notification::create([
+            'user_id' => Auth::id(),
+            'data' => $data,
+            'status' => 0,
+        ]);
+
+        $noti['id'] = $notification->id;
+
+        $options = array(
+            'cluster' => 'ap1',
+            'encrypted' => true
+        );
+
+        $pusher = new Pusher(
+            env('PUSHER_APP_KEY'),
+            env('PUSHER_APP_SECRET'),
+            env('PUSHER_APP_ID'),
+            $options
+        );
+        $pusher->trigger('notify', 'test', $noti);
+
         Session::flash('message', trans('message.alert.booking_success'));
         Session::flash('icon', 'success');
 

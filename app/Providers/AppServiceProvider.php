@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Booking;
 use App\Models\Hotel;
+use App\Models\Notification;
 use App\Models\Rating;
 use App\Models\Room;
 use App\Models\Type;
@@ -69,6 +70,8 @@ class AppServiceProvider extends ServiceProvider
         $room_count = Room::count();
         $rating_count = Rating::count();
         $types = Type::all();
+        $notifications = Notification::orderBy('created_at', 'DESC')->get();
+        $notifications_unread_count = Notification::where('status', config('status.noti.unread'))->count();
 
         View::share([
             'booking_waiting' => $booking_waiting,
@@ -76,8 +79,10 @@ class AppServiceProvider extends ServiceProvider
             'booking_count' => $booking_count,
             'user_count' => $user_count,
             'room_count' => $room_count,
+            'notifications_unread_count' => $notifications_unread_count,
             'types' => $types,
             'rating_count' => $rating_count,
+            'notifications' => $notifications,
         ]);
     }
 }

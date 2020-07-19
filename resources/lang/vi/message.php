@@ -182,6 +182,13 @@ return [
     'title' => [
         'admin_index' => 'TRANG QUẢN TRỊ - HỆ THỐNG ĐẶT PHÒNG KHÁCH SẠN',
     ],
+    'notification' => [
+        'notification' => 'Thông báo đặt phòng',
+        'seeAll' => 'Xem tất cả',
+        'emptyNoti' => 'Bạn không có thông báo nào!',
+        'alert' => 'Vừa có một đơn đặt mới!',
+        'titlePopUp' => 'Thông báo đặt phòng',
+    ],
     'home' => 'Trang chủ',
     'room' => 'Phòng',
     'welcome' => 'Chào mừng đến với',

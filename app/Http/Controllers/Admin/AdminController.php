@@ -4,12 +4,21 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Booking;
+use App\Models\Notification;
+use App\Repositories\Booking\BookingRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
+    protected $bookingRepo;
+
+    public function __construct(BookingRepositoryInterface $bookingRepo)
+    {
+        $this->bookingRepo = $bookingRepo;
+    }
+
     public function index()
     {
         return view('admin.index');
@@ -46,5 +55,28 @@ class AdminController extends Controller
         ];
 
         return response()->json($data);
+    }
+
+    public function readNotification(Request $request)
+    {
+        $id = $request->id;
+        $notification = Notification::find($id);
+        $notification->update([
+            'status' => config('status.noti.read')
+        ]);
+
+        $booking_id = $request->booking_id;
+
+        $booking = $this->bookingRepo->find($booking_id);
+        $booking['user_name'] = $booking->user->name;
+        $booking['phone_number'] = $booking->user->phone_number;
+        $booking['email'] = $booking->user->email;
+
+        $noti_count = Notification::where('status', config('status.noti.unread'))
+            ->count();
+
+        $booking['noti_count'] = $noti_count;
+
+        return response()->json($booking);
     }
 }

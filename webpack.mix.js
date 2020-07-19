@@ -10,7 +10,6 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
-
 mix.js('resources/js/datatable.js', 'public/js')
     .js('resources/js/googleTag.js', 'public/js')
     .js('resources/js/user_add_valid.js', 'public/js')
@@ -22,4 +21,5 @@ mix.js('resources/js/datatable.js', 'public/js')
     .js('resources/js/roomDetailAjax.js', 'public/js')
     .js('resources/js/filter-room-by-type-ajax.js', 'public/js')
     .js('resources/js/complete.js', 'public/js')
-    .js('resources/js/chart.js', 'public/js');
+    .js('resources/js/chart.js', 'public/js')
+    .js('resources/js/pusher.js', 'public/js');
