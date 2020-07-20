@@ -8,6 +8,7 @@
     "/js/formDeleteConfirm.js": "/js/formDeleteConfirm.js",
     "/js/format.js": "/js/format.js",
     "/js/googleTag.js": "/js/googleTag.js",
+    "/js/pusher.js": "/js/pusher.js",
     "/js/rating.js": "/js/rating.js",
     "/js/roomDetailAjax.js": "/js/roomDetailAjax.js",
     "/js/user_add_valid.js": "/js/user_add_valid.js"

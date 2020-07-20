@@ -13,6 +13,14 @@ interface RepositoryInterface
     public function getAll();
 
     /**
+     * Get data where column = condition
+     * @param string $colum
+     * @param string $condition
+     * @return Collection|static[]
+     */
+    public function getWhereEqual($column, $condition);
+
+    /**
      * Eagerload with parameter is array data and get data
      * @param array $data
      * @return Collection|static[]

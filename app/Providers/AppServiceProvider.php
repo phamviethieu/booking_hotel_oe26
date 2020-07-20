@@ -16,6 +16,8 @@ use App\Repositories\Hotel\HotelRepository;
 use App\Repositories\Hotel\HotelRepositoryInterface;
 use App\Repositories\Comment\CommentRepository;
 use App\Repositories\Comment\CommentRepositoryInterface;
+use App\Repositories\Notification\NotificationRepository;
+use App\Repositories\Notification\NotificationRepositoryInterface;
 use App\Repositories\Rating\RatingRepository;
 use App\Repositories\Rating\RatingRepositoryInterface;
 use App\Repositories\Role\RoleRepository;
@@ -30,6 +32,7 @@ use App\Repositories\User\UserRepository;
 use App\Repositories\User\UserRepositoryInterface;
 use App\Repositories\Video\VideoRepository;
 use App\Repositories\Video\VideoRepositoryInterface;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -53,6 +56,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(ImageRepositoryInterface::class, ImageRepository::class);
         $this->app->singleton(RatingRepositoryInterface::class, RatingRepository::class);
         $this->app->singleton(CommentRepositoryInterface::class, CommentRepository::class);
+        $this->app->singleton(NotificationRepositoryInterface::class, NotificationRepository::class);
     }
 
     /**
