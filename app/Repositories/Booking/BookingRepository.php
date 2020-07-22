@@ -77,6 +77,17 @@ class BookingRepository extends BaseRepository implements BookingRepositoryInter
             ->count();
     }
 
+    public function countByStatusThisWeek($status)
+    {
+        $now = now();
+        $startOfWeek = now()->startOfWeek();
+
+        return $this->model
+            ->where('status', $status)
+            ->whereBetween('created_at', [$startOfWeek, $now])
+            ->count();
+    }
+
     public function getWithOrderBy($attributes = [], $column, $key)
     {
         return $this->model
