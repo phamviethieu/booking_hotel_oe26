@@ -73,4 +73,10 @@ class User extends Authenticatable
             Booking::class
         );
     }
+
+    public function notifications()
+    {
+        return $this->belongsToMany(Notification::class)
+            ->withPivot('status');
+    }
 }

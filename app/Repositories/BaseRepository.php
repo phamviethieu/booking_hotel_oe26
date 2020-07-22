@@ -25,6 +25,13 @@ abstract class BaseRepository implements RepositoryInterface
         return $this->model->all();
     }
 
+    public function getWhereEqual($column, $condition)
+    {
+        return $this->model
+            ->where($column, $condition)
+            ->get();
+    }
+
     public function getWith($attributes = [])
     {
         return $this->model

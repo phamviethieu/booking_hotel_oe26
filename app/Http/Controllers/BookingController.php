@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use DB;
+use Pusher\Pusher;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use App\Repositories\Booking\BookingRepositoryInterface;
-use App\Repositories\BookingDetail\BookingDetailRepositoryInterface;
 use App\Repositories\Room\RoomRepositoryInterface;
 use App\Repositories\Type\TypeRepositoryInterface;
 use App\Repositories\User\UserRepositoryInterface;
+use App\Repositories\Booking\BookingRepositoryInterface;
+use App\Repositories\BookingDetail\BookingDetailRepositoryInterface;
+use App\Repositories\Notification\NotificationRepositoryInterface;
 
 class BookingController extends Controller
 {
@@ -26,13 +28,15 @@ class BookingController extends Controller
         BookingDetailRepositoryInterface $bookingDetailRepo,
         TypeRepositoryInterface $typeRepo,
         RoomRepositoryInterface $roomRepo,
-        UserRepositoryInterface $userRepo
+        UserRepositoryInterface $userRepo,
+        NotificationRepositoryInterface $notiRepo
     ) {
         $this->bookingRepo = $bookingRepo;
         $this->bookingDetailRepo = $bookingDetailRepo;
         $this->typeRepo = $typeRepo;
         $this->roomRepo = $roomRepo;
         $this->userRepo = $userRepo;
+        $this->notiRepo = $notiRepo;
     }
 
     public function booking()
@@ -162,6 +166,37 @@ class BookingController extends Controller
         $deposit = $request->deposit;
         $this->bookingRepo->updateDeposit($booking_id, $deposit);
         $user = Auth::user();
+        $noti['booking_id'] = $request->booking_id;
+        $noti['user'] = $user->email;
+        $data = json_encode($noti);
+        $notification = $this->notiRepo->create([
+            'user_id' => Auth::id(),
+            'data' => $data,
+        ]);
+        $options = array(
+            'cluster' => 'ap1',
+            'encrypted' => true
+        );
+        $pusher = new Pusher(
+            env('PUSHER_APP_KEY'),
+            env('PUSHER_APP_SECRET'),
+            env('PUSHER_APP_ID'),
+            $options
+        );
+        $users = $this->userRepo->getWhereEqual('role_id', config('role.admin'));
+
+        foreach ($users as $user) {
+            $notification->users()->attach(
+                $user->id,
+                ['status' => config('status.noti.unread')]
+            );
+            $pusher->trigger(
+                'notify-for-admin' . $user->id,
+                'booking-notify',
+                $noti
+            );
+        }
+
         Session::flash('message', trans('message.alert.booking_success'));
         Session::flash('icon', 'success');
 

@@ -51,6 +51,8 @@
     <script src="{{ asset('bower_components/admin-lte/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
     <script src="{{ asset('bower_components/admin-lte/plugins/toastr/toastr.min.js') }}"></script>
     <script src="{{ asset('bower_components/chart.js/dist/Chart.js') }}"></script>
+    <script src="{{ asset('bower_components/pusher-js/dist/web/pusher.min.js') }}"></script>
+    <script src="{{ mix('/js/pusher.js') }}"></script>
 
         @yield('script')
 
