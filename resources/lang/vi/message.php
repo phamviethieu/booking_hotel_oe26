@@ -182,6 +182,14 @@ return [
     'title' => [
         'admin_index' => 'TRANG QUẢN TRỊ - HỆ THỐNG ĐẶT PHÒNG KHÁCH SẠN',
     ],
+    'email' => [
+        'subject' => 'Đơn đặt phòng tuần này',
+        'hello' => 'Xin chào',
+        'title' => 'Chúng ta có vài tin mới',
+        'button' => 'Kiểm Tra Ngay',
+        'thanks' => 'Cảm ơn bạn, hi vọng bạn sẽ quay lại và kiểm tra sớm.',
+        'number' => 'Số lượng',
+    ],
     'home' => 'Trang chủ',
     'room' => 'Phòng',
     'welcome' => 'Chào mừng đến với',

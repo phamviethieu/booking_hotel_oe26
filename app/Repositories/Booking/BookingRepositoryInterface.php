@@ -30,6 +30,13 @@ interface BookingRepositoryInterface
     public function countByStatus($status);
 
     /**
+     * count booking by status in current week
+     * @param  integer $status
+     * @return interger
+     */
+    public function countByStatusThisWeek($status);
+
+    /**
      * Eagerload and order booking by key
      * @param  array $attributes
      * @param string $column

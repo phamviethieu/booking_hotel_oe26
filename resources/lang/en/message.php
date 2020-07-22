@@ -183,6 +183,14 @@ return [
     'title' => [
         'admin_index' => 'BOOKING HOTEL SYS - ADMIN MANAGER',
     ],
+    'email' => [
+        'subject' => 'Bookings This Week',
+        'hello' => 'Hello',
+        'title' => 'We have some news for you',
+        'button' => 'Check Now',
+        'thanks' => 'Thanks, hope you comeback and check all of them.',
+        'number' => 'Number',
+    ],
     'home' => 'Home',
     'room' => 'Room',
     'welcome' => 'Welcome to',
